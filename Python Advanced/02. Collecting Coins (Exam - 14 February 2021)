@@ -1,0 +1,76 @@
+def get_next_position(direction, r, c):
+    if direction == 'up':
+        if r - 1 < 0:
+            r = r - 1
+            while r < 0:
+                r += size
+            return r, c
+        else:
+            return r - 1, c
+    elif direction == 'down':
+        if r + 1 >= size:
+            r = r + 1
+            while r >= size:
+                r -= size
+            return r, c
+        else:
+            return r + 1, c
+    elif direction == 'left':
+        if c - 1 < 0:
+            c = c - 1
+            while c < 0:
+                c += size
+            return r, c
+        else:
+            return r, c - 1
+    elif direction == 'right':
+        if c + 1 >= size:
+            c = c + 1
+            while c >= size:
+                c -= size
+            return r, c
+        else:
+            return r, c + 1
+
+
+size = int(input())
+matrix = []
+p_row = 0
+p_col = 0
+coins = 0
+won = False
+path = []
+
+for i in range(size):
+    matrix.append([x for x in input().split()])
+    for j in range(size):
+        if matrix[i][j] == 'P':
+            p_row, p_col = i, j
+
+while not won:
+    direction = input()
+    next_row, next_col = get_next_position(direction, p_row, p_col)
+    if matrix[next_row][next_col] == 'X':
+        path.append([p_row, p_col])
+        if coins > 0:
+            coins //= 2
+        path.append(([next_row, next_col]))
+        break
+    elif matrix[next_row][next_col].isdigit():
+        coins += int(matrix[next_row][next_col])
+        matrix[p_row][p_col] = '0'
+        path.append([p_row, p_col])
+        matrix[next_row][next_col] = 'P'
+        p_row, p_col = next_row, next_col
+        if coins >= 100:
+            path.append([p_row, p_col])
+            won = True
+
+if not won:
+    print(f"Game over! You've collected {coins} coins.")
+else:
+    print(f"You won! You've collected {coins} coins.")
+
+print('Your path:')
+for el in path:
+    print(el)
