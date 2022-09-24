@@ -1,0 +1,65 @@
+#85/100
+
+first, second = input().split(', ')
+matrix = [[x for x in input().split()] for _ in range(7)]
+turn = 0
+first_score = 501
+first_arrow = 0
+second_score = 501
+second_arrow = 0
+
+while first_score > 0 or second_score > 0:
+    turn += 1
+    row, col = eval(input())
+    if row>= 7 or col>= 7:
+        continue
+    elif matrix[row][col].isdigit():
+        if turn % 2 != 0:
+            first_score -= int(matrix[row][col])
+            first_arrow += 1
+            if first_score <= 0:
+                print(f"{first} won the game with {first_arrow} throws!")
+                break
+        else:
+            second_score -= int(matrix[row][col])
+            second_arrow += 1
+            if second_score <= 0:
+                print(f"{second} won the game with {second_arrow} throws!")
+                break
+    elif matrix[row][col] == "D":
+        d_score = ((int(matrix[0][col]) + int(matrix[6][col]) + int(matrix[row][0]) + int(matrix[row][6])))*2
+        if turn % 2 != 0:
+            first_score -= d_score
+            first_arrow += 1
+            if first_score <= 0:
+                print(f"{first} won the game with {first_arrow} throws!")
+                break
+        else:
+            second_score -= d_score
+            second_arrow += 1
+            if second_score <= 0:
+                print(f"{second} won the game with {second_arrow} throws!")
+                break
+    elif matrix[row][col] == "T":
+        t_score = ((int(matrix[0][col]) + int(matrix[6][col]) + int(matrix[row][0]) + int(matrix[row][6])))*3
+        if turn % 2 != 0:
+            first_score -= t_score
+            first_arrow += 1
+            if first_score <= 0:
+                print(f"{first} won the game with {first_arrow} throws!")
+                break
+        else:
+            second_score -= t_score
+            second_arrow += 1
+            if second_score <= 0:
+                print(f"{second} won the game with {second_arrow} throws!")
+                break
+    elif matrix[row][col] == "B":
+        if turn % 2 != 0:
+            first_arrow += 1
+            print(f"{first} won the game with {first_arrow} throws!")
+            break
+        else:
+            second_arrow += 1
+            print(f"{second} won the game with {second_arrow} throws!")
+            break
