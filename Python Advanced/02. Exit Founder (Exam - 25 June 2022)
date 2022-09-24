@@ -1,0 +1,51 @@
+first_player, second_player = input().split(', ')
+matrix = []
+exit_row = 0
+exit_col = 0
+round = 0
+first_player_rest = False
+second_player_rest = False
+for i in range(6):
+    matrix.append([x for x in input().split()])
+
+while True:
+    row, col = eval(input())
+    round += 1
+    if matrix[row][col] == "E":
+        if round % 2 != 0 and not first_player_rest:
+            print(f"{first_player} found the Exit and wins the game!")
+            break
+        elif round % 2 != 0 and first_player_rest:
+            first_player_rest = False
+        elif round % 2 == 0 and not second_player_rest:
+            print(f"{second_player} found the Exit and wins the game!")
+            break
+        elif round % 2 == 0 and second_player_rest:
+            second_player_rest = False
+    elif matrix[row][col] == "T":
+        if round % 2 != 0 and not first_player_rest:
+            print(f"{first_player} is out of the game! The winner is {second_player}.")
+            break
+        elif round % 2 != 0 and first_player_rest:
+            first_player_rest = False
+        elif round % 2 == 0 and not second_player_rest:
+            print(f"{second_player} is out of the game! The winner is {first_player}.")
+            break
+        elif round % 2 == 0 and second_player_rest:
+            second_player_rest = False
+    elif matrix[row][col] == "W":
+        if round % 2 != 0 and not first_player_rest:
+            print(f"{first_player} hits a wall and needs to rest.")
+            first_player_rest = True
+        elif round % 2 != 0 and first_player_rest:
+            first_player_rest = False
+        elif round % 2 == 0 and not second_player_rest:
+            print(f"{second_player} hits a wall and needs to rest.")
+            second_player_rest = True
+        elif round % 2 == 0 and second_player_rest:
+            second_player_rest = False
+    elif matrix[row][col] == ".":
+        if round % 2 != 0 and first_player_rest:
+            first_player_rest = False
+        elif round % 2 == 0 and second_player_rest:
+            second_player_rest = False
