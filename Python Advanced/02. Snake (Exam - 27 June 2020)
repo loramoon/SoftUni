@@ -1,0 +1,57 @@
+def get_next_position(direction, r, c):
+    if direction == 'up':
+        return r - 1, c
+    elif direction == 'down':
+        return r + 1, c
+    elif direction == 'left':
+        return r, c - 1
+    elif direction == 'right':
+        return r, c + 1
+
+
+n = int(input())
+matrix = []
+s_row = 0
+s_col = 0
+food = 0
+b = []
+
+for i in range(n):
+    matrix.append([el for el in list(input())])
+    for j in range(n):
+        if matrix[i][j] == 'S':
+            s_row, s_col = i, j
+        elif matrix[i][j] == 'B':
+            b.append([i, j])
+
+
+while True:
+    direction = input()
+    next_row, next_col = get_next_position(direction, s_row, s_col)
+    if next_row < 0 or next_col < 0 or next_row >= n or next_col >= n:
+        matrix[s_row][s_col] = '.'
+        print('Game over!')
+        break
+    elif matrix[next_row][next_col] == '*':
+        food += 1
+        matrix[next_row][next_col] = 'S'
+        matrix[s_row][s_col] = '.'
+        s_row, s_col = next_row, next_col
+        if food >= 10:
+            print('You won! You fed the snake.')
+            break
+    elif matrix[next_row][next_col] == 'B':
+        b.remove([next_row, next_col])
+        matrix[s_row][s_col] = '.'
+        matrix[next_row][next_col] = '.'
+        next_row, next_col = b[0]
+        matrix[next_row][next_col] = 'S'
+        s_row, s_col = next_row, next_col
+    elif matrix[next_row][next_col] == '-':
+        matrix[s_row][s_col] = '.'
+        s_row, s_col = next_row, next_col
+        matrix[s_row][s_col] = 'S'
+
+print(f"Food eaten: {food}")
+for i in matrix:
+    print(''.join(i))
