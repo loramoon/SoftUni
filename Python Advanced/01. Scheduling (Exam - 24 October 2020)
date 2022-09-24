@@ -1,0 +1,16 @@
+from collections import deque
+
+clock_cycles = ([int(el) for el in input().split(', ')])
+index = int(input())
+cycles = 0
+clock_dict = {}
+
+for idx in range(len(clock_cycles)):
+    clock_dict[idx] = clock_cycles[idx]
+
+clock_dict = dict(sorted(clock_dict.items(), key=lambda item: item[1]))
+for k, v in clock_dict.items():
+    cycles += v
+    if k == index:
+        break
+print(cycles)
