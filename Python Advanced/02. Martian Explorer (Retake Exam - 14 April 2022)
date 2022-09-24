@@ -1,0 +1,69 @@
+from collections import deque
+
+
+def get_next_position(direction, row, col):
+    if direction == 'up':
+        if row != 0:
+            return row-1, col
+        else:
+            return 5, col
+    if direction == 'down':
+        if row != 5:
+            return row+1, col
+        else:
+            return 0, col
+    if direction == 'left':
+        if col !=0:
+            return row, col-1
+        else:
+            return row, 5
+    if direction == 'right':
+        if col != 5:
+            return row, col+1
+        else:
+            return row, 0
+
+
+matrix = []
+rover_row = 0
+rover_col = 0
+water = 0
+concrete = 0
+metal = 0
+
+for i in range(6):
+    matrix.append([el for el in input().split()])
+    for j in range(6):
+        if matrix[i][j] == "E":
+            rover_row = i
+            rover_col = j
+
+trace = deque([el for el in input().split(', ')])
+
+while trace:
+    position = trace.popleft()
+    next_row, next_col = get_next_position(position, rover_row, rover_col)
+    if matrix[next_row][next_col] == "W":
+        print(f'Water deposit found at ({next_row}, {next_col})')
+        water += 1
+        rover_row, rover_col = next_row, next_col
+    elif matrix[next_row][next_col] == "C":
+        print(f'Concrete deposit found at ({next_row}, {next_col})')
+        concrete += 1
+        rover_row, rover_col = next_row, next_col
+    elif matrix[next_row][next_col] == "M":
+        print(f'Metal deposit found at ({next_row}, {next_col})')
+        metal += 1
+        rover_row, rover_col = next_row, next_col
+    elif matrix[next_row][next_col] == "-":
+        metal += 1
+        rover_row, rover_col = next_row, next_col
+    elif matrix[next_row][next_col] == "R":
+        print(f'Rover got broken at ({next_row}, {next_col})')
+        rover_row, rover_col = next_row, next_col
+        break
+
+if water > 0 and concrete > 0 and metal > 0:
+    print("Area suitable to start the colony.")
+else:
+    print("Area not suitable to start the colony.")
