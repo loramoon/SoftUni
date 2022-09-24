@@ -1,0 +1,38 @@
+from collections import deque
+
+firework = deque([int(el) for el in input().split(', ')])
+power = [int(el) for el in input().split(', ')]
+production = {'Palm Fireworks': 0, 'Willow Fireworks': 0, 'Crossette Fireworks': 0}
+Party = False
+while firework and power and not Party:
+    fire = firework.popleft()
+    if fire <= 0:
+        continue
+    pow = power.pop()
+    if pow <= 0:
+        firework.insert(0, fire)
+        continue
+    effect = fire+pow
+    if effect % 3 == 0 and effect % 5 != 0:
+        production['Palm Fireworks'] += 1
+    elif effect % 3 != 0 and effect % 5 == 0:
+        production['Willow Fireworks'] += 1
+    elif effect % 3 == 0 and effect % 5 == 0:
+        production['Crossette Fireworks'] += 1
+    else:
+        fire -= 1
+        firework.append(fire)
+        power.append(pow)
+    if production['Palm Fireworks']>=3 and production['Willow Fireworks'] >= 3 and production['Crossette Fireworks']>=3:
+        Party = True
+
+if Party:
+    print("Congrats! You made the perfect firework show!")
+else:
+    print("Sorry. You can't make the perfect firework show.")
+if firework:
+    print(f"Firework Effects left:", ', '.join(str(el) for el in firework))
+if power:
+    print(f"Explosive Power left:", ', '.join(str(el) for el in power))
+for k, v in production.items():
+    print(f"{k}: {v}")
