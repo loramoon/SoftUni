@@ -1,0 +1,26 @@
+from collections import deque
+
+ramen = [int(el) for el in input().split(', ')]
+customer = deque([int(el) for el in input().split(', ')])
+boxes = 0
+
+while ramen and customer:
+    current_customer = customer.popleft()
+    current_ramen = ramen.pop()
+    if current_customer == current_ramen:
+        continue
+    elif current_ramen > current_customer:
+        left_ramen = current_ramen - current_customer
+        ramen.append(left_ramen)
+    elif current_ramen < current_customer:
+        left_customer = current_customer - current_ramen
+        customer.insert(0, left_customer)
+
+if not customer:
+    print(f"Great job! You served all the customers.")
+    if ramen:
+        print(f"Bowls of ramen left: " + ', '.join(str(el) for el in ramen))
+else:
+    print(f"Out of ramen! You didn't manage to serve all customers.")
+    if customer:
+        print(f"Customers left: " + ', '.join(str(el) for el in customer))
