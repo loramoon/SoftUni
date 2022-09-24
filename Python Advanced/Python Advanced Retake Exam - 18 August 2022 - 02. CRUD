@@ -1,0 +1,53 @@
+def get_next_position(direction, row, col):
+    if direction == 'up':
+        return row-1, col
+    if direction == 'down':
+        return row+1, col
+    if direction == 'left':
+        return row, col-1
+    if direction == 'right':
+        return row, col+1
+
+
+matrix = []
+
+
+for i in range(6):
+    matrix.append([el for el in input().split()])
+
+start_row, start_col = eval(input())
+
+
+while True:
+    command = input().split(', ')
+    if command[0] == 'Stop':
+        break
+    elif command[0] == 'Create':
+        direction = command[1]
+        value = command[2]
+        next_row, next_col = get_next_position(direction, start_row, start_col)
+        if matrix[next_row][next_col] == '.':
+            matrix[next_row][next_col] = value
+        start_row, start_col = next_row, next_col
+    elif command[0] == 'Update':
+        direction = command[1]
+        value = command[2]
+        next_row, next_col = get_next_position(direction, start_row, start_col)
+        if matrix[next_row][next_col] != '.':
+            matrix[next_row][next_col] = value
+        start_row, start_col = next_row, next_col
+    elif command[0] == 'Delete':
+        direction = command[1]
+        next_row, next_col = get_next_position(direction, start_row, start_col)
+        if matrix[next_row][next_col] != '.':
+            matrix[next_row][next_col] = '.'
+        start_row, start_col = next_row, next_col
+    elif command[0] == 'Read':
+        direction = command[1]
+        next_row, next_col = get_next_position(direction, start_row, start_col)
+        if matrix[next_row][next_col] != '.':
+            print(matrix[next_row][next_col])
+        start_row, start_col = next_row, next_col
+
+for row in matrix:
+    print(*row)
