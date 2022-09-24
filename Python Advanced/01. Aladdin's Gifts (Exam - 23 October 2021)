@@ -1,0 +1,38 @@
+from collections import deque
+
+materials = [int(el) for el in input().split()]
+magic_levels = deque(map(int, input().split()))
+product = {'Diamond Jewellery': 0, 'Gemstone': 0, 'Gold': 0, 'Porcelain Sculpture': 0}
+while materials and magic_levels:
+    n1 = magic_levels.popleft()
+    n2 = materials.pop()
+    n3 = n1 + n2
+    if n3 < 100:
+        if n3 % 2 == 0:
+            n3 = 3 * n1 + 2 * n2
+        else:
+            n3 *= 2
+    if n3 >= 500:
+        n3 /= 2
+    if 100 <= n3 < 200:
+        product['Gemstone'] += 1
+    elif 200<=n3 < 300:
+        product['Porcelain Sculpture'] += 1
+    elif 300<=n3 < 400:
+        product['Gold'] += 1
+    elif 400<=n3 < 500:
+        product['Diamond Jewellery'] += 1
+    else:
+        continue
+
+if (product['Gemstone'] and product['Porcelain Sculpture']>0) or (product['Gold'] and product['Diamond Jewellery']>0):
+    print("The wedding presents are made!")
+else:
+    print("Aladdin does not have enough wedding presents.")
+if materials:
+    print(f"Materials left:", ', '.join(str(el)for el in materials))
+if magic_levels:
+    print(f"Magic left:", ', '.join(str(el)for el in magic_levels))
+for k, v in product.items():
+    if v>0:
+        print(f"{k}: {v}")
