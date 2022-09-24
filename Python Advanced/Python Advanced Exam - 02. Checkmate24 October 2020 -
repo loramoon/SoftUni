@@ -1,0 +1,52 @@
+def find_king(direction):
+    for dir in direction:
+        r = queen_position[0] + dir[0]
+        c = queen_position[1] + dir[1]
+
+        while 0 <= r < rows and 0 <= c < rows:
+            if matrix[r][c] == 'K':
+                if [queen_position[0], queen_position[1]] not in queens:
+                    queens.append([queen_position[0], queen_position[1]])
+                return [queen_position[0], queen_position[1]]
+            if matrix[r][c] == 'Q':
+                break
+            r += dir[0]
+            c += dir[1]
+
+
+directions = (
+    (-1, 0),
+    (-1, -1),
+    (0, -1),
+    (1, -1),
+    (1, 0),
+    (1, 1),
+    (0, 1),
+    (-1, 1),
+)
+
+rows = 8
+matrix = []
+k_row = 0
+k_col = 0
+queens = []
+queen_position = []
+
+for i in range(rows):
+    matrix.append([el for el in input().split()])
+    for j in range(rows):
+        if matrix[i][j] == 'K':
+            k_row, k_col = i, j
+
+for _ in range(len(matrix)):
+    for row in range(rows):
+        for col in range(rows):
+            if matrix[row][col] == 'Q':
+                queen_position = (row, col)
+                queen_target = find_king(directions)
+
+if queens:
+    for i in queens:
+        print(i)
+else:
+    print('The king is safe!')
