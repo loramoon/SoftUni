@@ -1,0 +1,78 @@
+def get_next_position(direction, r, c):
+    if direction == 'up':
+        if r-1 < 0:
+            r = r-1
+            while r < 0:
+                r += row
+            return r, c
+        else:
+            return r-1, c
+    elif direction == 'down':
+        if r+1 >= row:
+            r = r+1
+            while r >= row:
+                r -= row
+            return r, c
+        else:
+            return r+1, c
+    elif direction == 'left':
+        if c-1 < 0:
+            c = c-1
+            while c < 0:
+                c += col
+            return r, c
+        else:
+            return r, c-1
+    elif direction == 'right':
+        if c+1 >= col:
+            c = c+1
+            while c >= col:
+                c -= col
+            return r, c
+        else:
+            return r, c+1
+
+
+row, col = eval(input())
+matrix = []
+santa_row, santa_col = 0, 0
+presents = 0
+items = {'D': 0, 'G': 0, 'C': 0}
+
+for i in range(row):
+    matrix.append([el for el in input().split()])
+    for j in range(col):
+        if matrix[i][j] == "Y":
+            santa_row, santa_col = i, j
+        elif matrix[i][j] in ("D", "G", "C"):
+            presents += 1
+
+while True:
+    command = input().split('-')
+    if command[0] == "End":
+        break
+    else:
+        direction, steps = command[0], int(command[1])
+        for i in range(steps):
+            next_row, next_col = get_next_position(direction, santa_row, santa_col)
+            if matrix[next_row][next_col] in ('G', 'C', 'D'):
+                presents -= 1
+                items[matrix[next_row][next_col]] += 1
+            matrix[next_row][next_col] = 'Y'
+            matrix[santa_row][santa_col] = 'x'
+            santa_row, santa_col = next_row, next_col
+            if presents == 0:
+                print("Merry Christmas!")
+                break
+        if presents == 0:
+            break
+print("You've collected:")
+for k, v in items.items():
+    if k == 'D':
+        print(f'- {v} Christmas decorations')
+    elif k == 'G':
+        print(f'- {v} Gifts')
+    elif k == 'C':
+        print(f'- {v} Cookies')
+
+[print(*row) for row in matrix]
