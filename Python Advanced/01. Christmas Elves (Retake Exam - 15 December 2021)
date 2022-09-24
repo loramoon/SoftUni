@@ -1,0 +1,42 @@
+#Zero tests do not pass!
+
+from collections import deque
+
+energy = deque(map(int, input().split(' ')))
+material = [int(el) for el in input().split(' ')]
+toys = 0
+used_energy = 0
+elf = 0
+
+while energy and material:
+    elf += 1
+    n1 = energy.popleft()
+    if n1 < 5:
+        continue
+    n2 = material.pop()
+
+    if n1 >= n2 and elf % 3 != 0 and elf % 5 != 0:
+        toys += 1
+        used_energy += n2
+        energy.append(n1-n2+1)
+    elif n1 >= 2*n2 and elf % 3 == 0 and elf % 5 != 0:
+        toys += 2
+        used_energy += 2*n2
+        energy.append(n1-2*n2+1)
+    elif n1 >= n2 and elf % 3 !=0 and elf % 5 == 0:
+        used_energy += n2
+        energy.append(n1-n2)
+    elif n1 >= 2*n2 and elf % 3 == 0 and elf % 5 == 0:
+        used_energy += 2*n2
+        energy.append(n1-2*n2)
+    else:
+        material.insert(0, n2)
+        energy.append(2*n1)
+
+
+print(f"Toys: {toys}")
+print(f"Energy: {used_energy}")
+if energy:
+    print(f"Elves left:", ', '.join(str(el) for el in energy))
+if material:
+    print(f"Boxes left:", ', '.join((str(el) for el in material)))
