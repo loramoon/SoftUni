@@ -1,0 +1,39 @@
+from collections import deque
+
+
+def remove_seat(a, b):
+    if a in seats:
+        chars.append(a)
+        seats.remove(a)
+    if b in seats:
+        chars.append(b)
+        seats.remove(b)
+
+
+chars = []
+rotate = 0
+seats = input().split(', ')
+num_line_1 = deque([int(el) for el in input().split(', ')])
+num_line_2 = [int(el) for el in input().split(', ')]
+ready = False
+
+while not ready:
+    if len(chars) == 3 or rotate == 10:
+        ready = True
+        break
+
+    n1 = num_line_1.popleft()
+    n2 = num_line_2.pop()
+    char = chr(n1 + n2)
+    a = str(n1) + char
+    b = str(n2) + char
+    if a in seats or b in seats:
+        remove_seat(a, b)
+        rotate += 1
+    else:
+        num_line_1.append(n1)
+        num_line_2.insert(0, n2)
+        rotate += 1
+
+print(f"Seat matches: " + ', '.join(chars))
+print(f"Rotations count: {rotate}")
