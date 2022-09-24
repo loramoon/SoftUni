@@ -1,0 +1,31 @@
+size = int(input())
+bombs = int(input())
+
+matrix = [[0 for _ in range(size)] for _ in range(size)]
+
+for _ in range(bombs):
+    b_row, b_col = eval(input())
+    matrix[b_row][b_col] = '*'
+
+for i in range(size):
+    for j in range(size):
+        if matrix[i][j] == '*':
+            if j - 1 >= 0 and matrix[i][j - 1] != '*':
+                matrix[i][j - 1] += 1
+            if i + 1 < size and j - 1 >= 0 and matrix[i + 1][j - 1] != '*':
+                matrix[i + 1][j - 1] += 1
+            if i + 1 < size and matrix[i + 1][j] != '*':
+                matrix[i + 1][j] += 1
+            if i + 1 < size and j + 1 < size and matrix[i + 1][j + 1] != '*':
+                matrix[i + 1][j + 1] += 1
+            if j + 1 < size and matrix[i][j + 1] != '*':
+                matrix[i][j + 1] += 1
+            if i - 1 >= 0 and j + 1 < size and matrix[i - 1][j + 1] != '*':
+                matrix[i - 1][j + 1] += 1
+            if i - 1 >= 0 and matrix[i - 1][j] != '*':
+                matrix[i - 1][j] += 1
+            if i - 1 >= 0 and j - 1 >= 0 and matrix[i - 1][j - 1] != '*':
+                matrix[i - 1][j - 1] += 1
+
+for i in matrix:
+    print(*i)
