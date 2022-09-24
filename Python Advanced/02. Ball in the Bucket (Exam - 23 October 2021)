@@ -1,0 +1,23 @@
+#97/100
+
+matrix = [[int(x) if x.isdigit() else x for x in input().split()] for _ in range(6)]
+score = 0
+
+for ball in range(3):
+    row, col = eval(input())
+    if row >= 6 or col >= 6:
+        continue
+    elif matrix[row][col] == 'B':
+        for i in range(6):
+            for j in range(6):
+                if j == col and matrix[i][j] != 'B':
+                    score += matrix[i][j]
+
+if score < 100:
+    print(f"Sorry! You need {100 - score} points more to win a prize.")
+elif score < 200:
+    print(f"Good job! You scored {score} points, and you've won Football.")
+elif score < 300:
+    print(f"Good job! You scored {score} points, and you've won Teddy Bear.")
+else:
+    print(f"Good job! You scored {score} points, and you've won Lego Construction Set.")
