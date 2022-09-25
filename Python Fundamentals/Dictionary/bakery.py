@@ -7,17 +7,3 @@ for i in range (0, len(elements), 2):
     my_dict[key] = int(value)
 
 print(my_dict)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
