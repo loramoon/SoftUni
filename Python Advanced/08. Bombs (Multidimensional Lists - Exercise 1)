@@ -26,7 +26,6 @@ while bombs:
     b_row, b_col = eval(bombs.popleft())
     if matrix[b_row][b_col] > 0:
         energy = matrix[b_row][b_col]
-        matrix[b_row][b_col] -= energy
 
         start_row_idx, end_row_idx = get_index(b_row)
         start_col_idx, end_col_idx = get_index(b_col)
