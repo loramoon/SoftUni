@@ -1,0 +1,33 @@
+size = int(input())
+matrix = []
+[matrix.append(input().split()) for a in range(size)]
+collected_eggs = 0
+path = []
+max_collected_eggs = -99999999999999
+max_path = []
+max_direction = None
+directions = {
+    "up": (-1, 0),
+    "down": (1, 0),
+    "left": (0, -1),
+    "right": (0, 1)
+}
+for row in range(size):
+    for col in range(size):
+        if matrix[row][col] == "B":
+            for direction in directions.keys():
+                x, y = directions[direction]
+                b_x, b_y = row + x, col + y
+                while 0 <= b_x < size and 0 <= b_y < size and matrix[b_x][b_y] != "X":
+                    path.append([b_x, b_y])
+                    collected_eggs += int(matrix[b_x][b_y])
+                    b_x, b_y = b_x + x, b_y + y
+                if collected_eggs > max_collected_eggs and path:
+                    max_collected_eggs = collected_eggs
+                    max_path = path
+                    max_direction = direction
+                collected_eggs = 0
+                path = []
+print(max_direction)
+[print(coordinates) for coordinates in max_path]
+print(max_collected_eggs)
