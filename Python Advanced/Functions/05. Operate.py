@@ -8,7 +8,7 @@ def operate(operation, *args):
         for values in args:
             result *= values
         return result
-    def divide(x, *args):
+    def devide(x, *args):
         result = x
         for values in args:
             result /= values
@@ -20,11 +20,6 @@ def operate(operation, *args):
     elif operation == '*':
         return multiply(*args)
     elif operation == '/':
-        return divide(*args)
+        return devide(*args)
     else:
         return None
-
-
-
-print(operate("-", 10, 5, 3))
-print(operate("-", 3, 4))
