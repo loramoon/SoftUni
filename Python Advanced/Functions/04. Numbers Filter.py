@@ -6,8 +6,7 @@ def even_odd_filter(**kwargs):
         filtered = [x for x in value if x % 2 == parity]
         result[key] = filtered
 
-    return result
-
+    return dict(sorted(result.items(), key = lambda x: len(x[1]), reverse=True))
 
 print(even_odd_filter(
     odd=[1, 2, 3, 4, 10, 5],
