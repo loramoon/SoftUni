@@ -21,7 +21,7 @@ while email != "End":
         raise NameTooShortError("Name must be more than 4 characters")
     domain = name[1].split('.')
     if domain[1] not in domains:
-        raise InvalidDomainError("Domain must be one of the following: .com, .bg, .org, .net")
+        raise InvalidDomainError("Domain must be one of the following: ." + ', .'.join(domains))
 
     print("Email is valid")
 
