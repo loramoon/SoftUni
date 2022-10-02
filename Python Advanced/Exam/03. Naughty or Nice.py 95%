@@ -25,7 +25,7 @@ def naughty_or_nice_list(*args, **kwargs):
 
     final_result = ''
     for code, kid in santa_list.items():
-        if len(kid) > 0:
+        if kid:
             final_result += f"{code}: {', '.join(kid)}\n"
     return final_result
 
