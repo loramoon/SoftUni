@@ -22,7 +22,7 @@ def naughty_or_nice_list(*args, **kwargs):
                     santa_list[kid].extend([code])
                     all_kids[num].remove(code)
 
-    if len(all_kids) > 0:
+    if all_kids:
         for kid in all_kids.values():
             santa_list["Not found"].extend(kid)
 
