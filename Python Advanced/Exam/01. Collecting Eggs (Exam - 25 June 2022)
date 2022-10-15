@@ -1,27 +1,29 @@
 from collections import deque
 
-egg_sizes = deque([int(el) for el in input().split(', ')])
-paper_sizes = [int(el) for el in input().split(', ')]
+egg = deque([int(el) for el in input().split(', ')])
+paper = [int(el) for el in input().split(', ')]
 boxes = 0
 
-while egg_sizes and paper_sizes:
-    n1 = egg_sizes.popleft()
-    n2 = paper_sizes.pop()
-    if n1 <= 0:
-        paper_sizes.append(n2)
-    elif n1 == 13:
-        n3 = paper_sizes.pop(0)
-        paper_sizes.insert(0, n2)
-        paper_sizes.append(n3)
+while egg and paper:
+    current_egg = egg.popleft()
+    
+    if current_egg <= 0:
         continue
+        
+    elif current_egg == 13:
+        paper[0], paper[-1] = paper[-1], paper[0]
+        continue
+        
     else:
-        if n1+n2 <= 50:
+        current_paper = paper.pop()
+        if current_egg+current_paper <= 50:
             boxes += 1
+            
 if boxes>0:
     print(f"Great! You filled {boxes} boxes.")
 else:
     print("Sorry! You couldn't fill any boxes!")
-if len(paper_sizes) > 0:
-    print(f"Pieces of paper left: " + ', '.join(str(el) for el in paper_sizes))
-if len(egg_sizes) > 0:
-    print(f"Eggs left: " + ', '.join(str(el) for el in egg_sizes))
+if paper:
+    print(f"Pieces of paper left: " + ', '.join(str(el) for el in paper))
+if egg:
+    print(f"Eggs left: " + ', '.join(str(el) for el in egg))
