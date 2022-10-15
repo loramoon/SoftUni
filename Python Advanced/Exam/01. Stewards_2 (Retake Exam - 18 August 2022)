@@ -1,0 +1,33 @@
+from collections import deque
+
+seats = input().split(', ')
+
+first = deque([int(x) for x in input().split(', ')])
+second = [int(x) for x in input().split(', ')]
+
+matched_seats = []
+rotation = 0
+
+while len(matched_seats) != 3:
+    a = first.popleft()
+    b = second.pop()
+    sum_numbs = a + b
+    symbol = chr(sum_numbs)
+
+    A = str(a)+symbol
+    B = str(b)+symbol
+    if A in seats:
+        seats.remove(A)
+        matched_seats.append(A)
+    if B in seats:
+        seats.remove(B)
+        matched_seats.append(B)
+    if (A or B) not in matched_seats:
+        first.append(a)
+        second.insert(0, b)
+    rotation += 1
+    if rotation == 10:
+        break
+
+print(f"Seat matches: {', '.join(matched_seats)}")
+print(f"Rotations count: {rotation}")
