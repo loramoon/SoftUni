@@ -1,28 +1,19 @@
 def words_sorting(*args):
-    list_ = {}
-    total = 0
-    for i in args:
-        char_sum = 0
-        for char in i:
-            char_sum += ord(char)
-        result = char_sum
-        total += result
-        list_[i] = result
+    word_dict = {}
+    total_sum = 0
+    for word in args:
+        word_dict[word] = 0
+        for letter in word:
+            word_dict[word] += ord(letter)
+            total_sum += ord(letter)
 
-    if total % 2 != 0:
-        sorted_list = sorted(list_.items(), key=lambda x: (-(x[1])))
+    if total_sum % 2 != 0:
+        sorted_dict = sorted(word_dict.items(), key=lambda x: -(x[1]))
     else:
-        sorted_list = sorted(list_.items(), key=lambda x: (x[0]))
+        sorted_dict = sorted(word_dict.items(), key=lambda x: (x[0]))
 
-    final = ''
-    for k, v in sorted_list:
-        final += f"{k} - {v}\n"
+    result = ''
+    for k, v in sorted_dict:
+        result += f"{k} - {v}\n"
 
-    return final
-
-print(
-    words_sorting(
-        'cacophony',
-        'accolade'
-  ))
-
+    return result
