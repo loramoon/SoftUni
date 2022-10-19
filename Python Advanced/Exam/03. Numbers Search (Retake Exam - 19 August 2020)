@@ -1,0 +1,21 @@
+def numbers_searching(*args):
+    min_n = 9999999999999999999
+    max_n = -9999999999999999999999
+    single = []
+    duplicate = []
+    missing = []
+    for n in args:
+        if n < min_n:
+            min_n = n
+        if n > max_n:
+            max_n = n
+        if n not in single:
+            single.append(n)
+        else:
+            if n not in duplicate:
+                duplicate.append(n)
+    for i in range(min_n, max_n):
+        if i not in single:
+            missing = [i]
+    missing.append(sorted(duplicate))
+    return missing
