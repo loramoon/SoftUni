@@ -1,0 +1,33 @@
+from collections import deque
+
+bees = deque([int(x) for x in input().split()])
+nectar = [int(x) for x in input().split()]
+symbols = deque([x for x in input().split()])
+total_honey = 0
+
+while bees and nectar and symbols:
+    if bees[0] <= nectar[-1]:
+
+        cur_symbol = symbols.popleft()
+        if cur_symbol == '+':
+            total_honey += abs(bees.popleft() + nectar.pop())
+        elif cur_symbol == '-':
+            total_honey += abs(bees.popleft() - nectar.pop())
+        elif cur_symbol == '*':
+            total_honey += abs(bees.popleft() * nectar.pop())
+        elif cur_symbol == '/':
+            if bees[0] != 0 and nectar[-1] != 0:
+                total_honey += abs(bees.popleft() / nectar.pop())
+            else:
+                bees.popleft()
+                nectar.pop()
+
+
+    elif bees[0] > nectar[-1]:
+        nectar.pop()
+
+print(f"Total honey made: {total_honey}")
+if bees:
+    print(f"Bees left: " + ', '.join(str(x) for x in bees))
+if nectar:
+    print(f"Nectar left: " + ', '.join(str(x) for x in nectar))
