@@ -1,0 +1,38 @@
+from collections import deque
+
+line = deque([x for x in input().split()])
+result = 0
+temp_list = deque([])
+
+while line:
+    a = line.popleft()
+    if a.lstrip('-').isnumeric():
+        temp_list.append(int(a))
+        continue
+        
+    else:
+        b = ''
+        if a == '-':
+            b = temp_list.popleft()
+            while temp_list:
+                b -= temp_list.popleft()
+
+        elif a == '+':
+            b = temp_list.popleft()
+            while temp_list:
+                b += temp_list.popleft()
+
+        elif a == '*':
+            b = temp_list.popleft()
+            while temp_list:
+                b *= temp_list.popleft()
+
+        elif a == '/':
+            b = temp_list.popleft()
+            while temp_list:
+                b //= temp_list.popleft()
+                
+        line.appendleft(str(b))
+        result = b
+
+print(result)
