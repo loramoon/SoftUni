@@ -1,0 +1,43 @@
+def naughty_or_nice_list(full_list, *command, **commands):
+    modified_list = {}
+    names = {}
+    santa_list = {"Nice": [], "Naughty": [], "Not found": []}
+
+    for tuple_ in full_list:
+        if tuple_[0] not in modified_list:
+            modified_list[tuple_[0]] = []
+        modified_list[tuple_[0]].append(tuple_[1])
+
+    for tuple_ in command:
+        arg = int(tuple_[0])
+        com = tuple_[2:]
+
+        for code, nam in modified_list.items():
+            if code == arg:
+                if len(nam) == 1:
+                    santa_list[com].extend(nam)
+                    modified_list[code] = []
+
+    for name in modified_list.values():
+        for i in name:
+            if i not in names.keys():
+                names[i] = 0
+            names[i] += 1
+
+    for x, y in commands.items():
+        for a, b in names.items():
+            if x == a and b == 1 and y in santa_list:
+                santa_list[y].append(x)
+                for k, v in modified_list.items():
+                    if x in v:
+                        v.remove(x)
+
+    for r, t in modified_list.items():
+        if t:
+            santa_list["Not found"].extend(t)
+
+    final_result = ''
+    for code, kid in santa_list.items():
+        if kid:
+            final_result += f"{code}: {', '.join(kid)}\n"
+    return final_result
