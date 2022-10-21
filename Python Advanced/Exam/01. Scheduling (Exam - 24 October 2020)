@@ -1,5 +1,3 @@
-from collections import deque
-
 clock_cycles = ([int(el) for el in input().split(', ')])
 index = int(input())
 cycles = 0
