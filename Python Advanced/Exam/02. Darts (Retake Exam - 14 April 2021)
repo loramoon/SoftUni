@@ -1,7 +1,10 @@
+def get_mat_score(r, c):
+    return int(matrix[0][c]) + int(matrix[6][c]) + int(matrix[r][0]) + int(matrix[r][6])
+
+
 players = input().split(', ')
 matrix = [[x for x in input().split()] for _ in range(7)]
-turns = {}
-scores = {}
+turns, scores = {}, {}
 
 turns[players[0]], turns[players[1]] = 0, 0
 scores[players[0]], scores[players[1]] = 501, 501
@@ -17,17 +20,19 @@ while True:
         scores[players[0]] -= int(matrix[row][col])
 
     elif matrix[row][col] == "D":
-        d_score = (int(matrix[0][col]) + int(matrix[6][col]) + int(matrix[row][0]) + int(matrix[row][6])) * 2
+        d_score = get_mat_score(row, col) * 2
         scores[players[0]] -= d_score
 
     elif matrix[row][col] == "T":
-        t_score = (int(matrix[0][col]) + int(matrix[6][col]) + int(matrix[row][0]) + int(matrix[row][6])) * 3
+        t_score = get_mat_score(row, col) * 3
         scores[players[0]] -= t_score
 
     elif matrix[row][col] == "B":
         print(f"{players[0]} won the game with {turns[players[0]]} throws!")
         break
+        
     if scores[players[0]] <= 0:
         print(f"{players[0]} won the game with {turns[players[0]]} throws!")
         break
+        
     players[0], players[1] = players[1], players[0]
