@@ -1,65 +1,33 @@
-#85/100
-
-first, second = input().split(', ')
+players = input().split(', ')
 matrix = [[x for x in input().split()] for _ in range(7)]
-turn = 0
-first_score = 501
-first_arrow = 0
-second_score = 501
-second_arrow = 0
+turns = {}
+scores = {}
 
-while first_score > 0 or second_score > 0:
-    turn += 1
+turns[players[0]], turns[players[1]] = 0, 0
+scores[players[0]], scores[players[1]] = 501, 501
+
+while True:
+    turns[players[0]] += 1
     row, col = eval(input())
-    if row>= 7 or col>= 7:
+    if row >= 7 or row < 0 or col < 0 or col >= 7:
+        players[0], players[1] = players[1], players[0]
         continue
+
     elif matrix[row][col].isdigit():
-        if turn % 2 != 0:
-            first_score -= int(matrix[row][col])
-            first_arrow += 1
-            if first_score <= 0:
-                print(f"{first} won the game with {first_arrow} throws!")
-                break
-        else:
-            second_score -= int(matrix[row][col])
-            second_arrow += 1
-            if second_score <= 0:
-                print(f"{second} won the game with {second_arrow} throws!")
-                break
+        scores[players[0]] -= int(matrix[row][col])
+
     elif matrix[row][col] == "D":
-        d_score = ((int(matrix[0][col]) + int(matrix[6][col]) + int(matrix[row][0]) + int(matrix[row][6])))*2
-        if turn % 2 != 0:
-            first_score -= d_score
-            first_arrow += 1
-            if first_score <= 0:
-                print(f"{first} won the game with {first_arrow} throws!")
-                break
-        else:
-            second_score -= d_score
-            second_arrow += 1
-            if second_score <= 0:
-                print(f"{second} won the game with {second_arrow} throws!")
-                break
+        d_score = (int(matrix[0][col]) + int(matrix[6][col]) + int(matrix[row][0]) + int(matrix[row][6])) * 2
+        scores[players[0]] -= d_score
+
     elif matrix[row][col] == "T":
-        t_score = ((int(matrix[0][col]) + int(matrix[6][col]) + int(matrix[row][0]) + int(matrix[row][6])))*3
-        if turn % 2 != 0:
-            first_score -= t_score
-            first_arrow += 1
-            if first_score <= 0:
-                print(f"{first} won the game with {first_arrow} throws!")
-                break
-        else:
-            second_score -= t_score
-            second_arrow += 1
-            if second_score <= 0:
-                print(f"{second} won the game with {second_arrow} throws!")
-                break
+        t_score = (int(matrix[0][col]) + int(matrix[6][col]) + int(matrix[row][0]) + int(matrix[row][6])) * 3
+        scores[players[0]] -= t_score
+
     elif matrix[row][col] == "B":
-        if turn % 2 != 0:
-            first_arrow += 1
-            print(f"{first} won the game with {first_arrow} throws!")
-            break
-        else:
-            second_arrow += 1
-            print(f"{second} won the game with {second_arrow} throws!")
-            break
+        print(f"{players[0]} won the game with {turns[players[0]]} throws!")
+        break
+    if scores[players[0]] <= 0:
+        print(f"{players[0]} won the game with {turns[players[0]]} throws!")
+        break
+    players[0], players[1] = players[1], players[0]
