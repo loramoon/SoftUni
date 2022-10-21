@@ -1,42 +1,41 @@
-def get_next_position(direction, r, c):
-    if direction == 'up':
-        return r - 1, c
-    elif direction == 'down':
-        return r + 1, c
-    elif direction == 'left':
-        return r, c - 1
-    elif direction == 'right':
-        return r, c + 1
+def get_next_position(r, c, dirs):
+    if dirs == "up": r -= 1
+    elif dirs == "down": r += 1
+    elif dirs == "left": c -= 1
+    elif dirs == "right": c += 1
+    return r, c
 
 
-word = input()
-n = int(input())
+text = input()
+N = int(input())
 matrix = []
-p_row = 0
-p_col = 0
+p_row, p_col = 0, 0
 
-for i in range(n):
-    matrix.append([el for el in list(input())])
-    for j in range(n):
-        if matrix[i][j] == 'P':
+for i in range(N):
+    matrix.append([ch for ch in input()])
+    for j in range(N):
+        if matrix[i][j] == "P":
             p_row, p_col = i, j
 
+n = int(input())
 
-for _ in range(int(input())):
+for _ in range(n):
     direction = input()
-    next_row, next_col = get_next_position(direction, p_row, p_col)
-    if next_row < 0 or next_col < 0 or next_row >= n or next_col >= n:
-        if len(word)>0: word = word[:-1]
-    elif matrix[next_row][next_col] != '-':
-        word += matrix[next_row][next_col]
-        matrix[p_row][p_col] = '-'
-        p_row, p_col = next_row, next_col
-        matrix[p_row][p_col] = 'P'
-    else:
-        matrix[p_row][p_col] = '-'
-        p_row, p_col = next_row, next_col
-        matrix[p_row][p_col] = 'P'
+    n_row, n_col = get_next_position(p_row, p_col, direction)
 
-print(word)
+    if n_row < 0 or n_row == N or n_col < 0 or n_col == N:
+        n_row, n_col = p_row, p_col
+        if len(text) > 0:
+            text = text[:-1]
+            continue
+
+    if matrix[n_row][n_col] != '-':
+        text += matrix[n_row][n_col]
+
+    matrix[p_row][p_col] = '-'
+    p_row, p_col = n_row, n_col
+    matrix[p_row][p_col] = 'P'
+
+print(text)
 for i in matrix:
     print(''.join(i))
