@@ -1,0 +1,19 @@
+def forecast(*args):
+    my_dict = {"Sunny": [], "Cloudy": [], "Rainy": []}
+    for town, weather in args:
+        my_dict[weather].append(town)
+
+    result = ''
+    for k, v in my_dict.items():
+        for town in sorted(v):
+            result += f"{town} - {k}"+'\n'
+    return result
+
+print(forecast(
+    ("Beijing", "Sunny"),
+    ("Hong Kong", "Rainy"),
+    ("Tokyo", "Sunny"),
+    ("Sofia", "Cloudy"),
+    ("Peru", "Sunny"),
+    ("Florence", "Cloudy"),
+    ("Bourgas", "Sunny")))
