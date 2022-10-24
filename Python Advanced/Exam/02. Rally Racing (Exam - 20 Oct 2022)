@@ -1,0 +1,63 @@
+def get_next_position(direction, row, col):
+    if direction == 'left':
+        return row, col - 1
+    elif direction == 'right':
+        return row, col + 1
+    elif direction == 'up':
+        return row - 1, col
+    elif direction == 'down':
+        return row + 1, col
+
+
+n = int(input())
+car_number = int(input())
+matrix = []
+T1_row, T1_col = -1, -1
+T2_row, T2_col = -1, -1
+car_row, car_col = 0, 0
+total_km = 0
+
+for i in range(n):
+    matrix.append([el for el in input().split()])
+    for j in range(n):
+        matrix[0][0] = 'C'
+        if matrix[i][j] == "T":
+            if T1_row == -1 and T1_col == -1:
+                T1_row, T1_col = i, j
+            else:
+                T2_row, T2_col = i, j
+
+while True:
+    command = input()
+    if command == "End":
+        print(f"Racing car {car_number} DNF.")
+        break
+
+    next_row, next_col = get_next_position(command, car_row, car_col)
+    if matrix[next_row][next_col] == '.':
+        matrix[car_row][car_col] = "."
+        car_row, car_col = next_row, next_col
+        matrix[car_row][car_col] = "C"
+        total_km += 10
+    elif matrix[next_row][next_col] == 'T':
+        if next_row == T1_row and next_col == T1_col:
+            next_row, next_col = T2_row, T2_col
+        else:
+            next_row, next_col = T1_row, T1_col
+        matrix[car_row][car_col] = '.'
+        matrix[T1_row][T1_col] = '.'
+        matrix[T2_row][T2_col] = '.'
+        car_row, car_col = next_row, next_col
+        matrix[car_row][car_col] = "C"
+        total_km += 30
+    elif matrix[next_row][next_col] == 'F':
+        matrix[car_row][car_col] = "."
+        car_row, car_col = next_row, next_col
+        matrix[car_row][car_col] = "C"
+        total_km += 10
+        print(f"Racing car {car_number} finished the stage!")
+        break
+
+print(f"Distance covered {total_km} km.")
+for i in matrix:
+    print(''.join(i))
