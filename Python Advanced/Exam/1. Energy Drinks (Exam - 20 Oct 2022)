@@ -1,0 +1,21 @@
+from collections import deque
+
+caffeine = [int(el) for el in input().split(', ')]
+drink = deque(map(int, input().split(', ')))
+stam_drunk = 0
+
+while caffeine and drink:
+    if caffeine[-1] * drink[0] + stam_drunk <= 300:
+        stam_drunk += caffeine.pop() * drink.popleft()
+    else:
+        caffeine.pop()
+        drink.append(drink.popleft())
+        stam_drunk -= 30
+        if stam_drunk < 0:
+            stam_drunk = 0
+
+if drink:
+    print(f"Drinks left: " + ', '.join(str(x) for x in drink))
+else:
+    print("At least Stamat wasn't exceeding the maximum caffeine.")
+print(f"Stamat is going to sleep with {stam_drunk} mg caffeine.")
