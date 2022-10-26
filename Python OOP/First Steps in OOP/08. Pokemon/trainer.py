@@ -12,20 +12,14 @@ class Trainer:
         return f"Caught {pokemon.pokemon_details()}"
 
     def release_pokemon(self, pokemon_name):
-        try:
-            pokemon = next(filter(lambda p: p.name == pokemon_name, self.pokemons))
-        except StopIteration:
-            return f"Pokemon is not caught"
-
-        self.pokemons.remove(pokemon)
-
-        return f"You have released {pokemon_name}"
+        for a_pokemon in self.pokemons:
+            if a_pokemon.name == pokemon_name:
+                self.pokemons.remove(a_pokemon)
+                return f"You have released {pokemon_name}"
+        return f"Pokemon is not caught"
 
     def trainer_data(self):
-        result = []
-
-        result.append(f"Pokemon Trainer {self.name}")
-        result.append(f"Pokemon count {len(self.pokemons)}")
+        result = [f"Pokemon Trainer {self.name}", f"Pokemon count {len(self.pokemons)}"]
         [result.append(f"- {p.pokemon_details()}") for p in self.pokemons]
 
         return '\n'.join(result)
