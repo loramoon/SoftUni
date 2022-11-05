@@ -1,0 +1,7 @@
+year_tax_training = int(input())
+shoes = year_tax_training * 0.6
+clothes = shoes * 0.8
+ball = 0.25 * clothes
+accessories = 0.2 * ball
+total = year_tax_training + shoes + clothes + ball + accessories
+print(total)
