@@ -1,0 +1,7 @@
+lend_cm = int(input())
+large_cm = int(input())
+high = int(input())
+percent = float(input()) / 100
+volume = lend_cm * large_cm * high / 1000
+water = volume * (1 - percent)
+print(water)
