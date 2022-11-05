@@ -1,0 +1,15 @@
+x = float(input())
+y = float(input())
+h = float(input())
+door = 1.2 * 2
+windows = 2 * (1.5 * 1.5)
+front_wall = 2 * x * x - door
+side_walls = 2 * (x * y) - windows
+wall_area = front_wall + side_walls
+green_paint = wall_area / 3.4
+roof_square = 2 * x * y
+roof_triangle = x * h
+roof_area = roof_square + roof_triangle
+red_paint = roof_area / 4.3
+print(f"green_paint:.2f")
+print(f"red_paint:.2f")
