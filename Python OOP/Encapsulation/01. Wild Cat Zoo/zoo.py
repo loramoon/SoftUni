@@ -74,19 +74,6 @@ class Zoo:
         return '\n'.join(str(r) for r in result)
 
     def workers_status(self):
-        # caretakers = list(filter(lambda w: w.__class.__name__ == 'Caretakers', self.workers))
-        # vets = list(filter(lambda w: w.__class.__name__ == 'Vet', self.workers))
-        #
-        # result = [
-        #     f"You have {len(self.workers)} workers"
-        #     f"----- {len(caretakers)} Caretakers:"
-        # ]
-        # result.extend(caretakers)
-        #
-        # result.append(f"----- {len(vets)} Vets:")
-        # result.extend(vets)
-        #
-        # return '\n'.join(str(r) for r in result)
         info = {"Caretaker": [], "Vet": [], "Keeper": []}
         [info[x.__class__.__name__].append(str(x)) for x in self.workers]
 
