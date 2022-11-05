@@ -1,0 +1,15 @@
+from math import floor, ceil
+
+n_magnolia = int(input())
+n_hyacinth = int(input())
+n_rose = int(input())
+n_cactus = int(input())
+present_price = float(input())
+total_sale = 3.25 * n_magnolia + 4 * n_hyacinth + 3.5 * n_rose + 8 * n_cactus
+net_sale = total_sale * 0.95
+difference = abs(present_price - net_sale)
+
+if net_sale >= present_price:
+    print(f"She is left with {floor(difference)} leva.")
+else:
+    print(f"She will have to borrow {ceil(difference)} leva.")
