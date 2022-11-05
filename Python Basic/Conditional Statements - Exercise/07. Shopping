@@ -1,0 +1,19 @@
+petar_budget = float(input())
+video_numb = int(input())
+cpu_numb = int(input())
+ram_numb = int(input())
+
+video_price = 250
+cpu_price = video_numb * video_price * 0.35
+ram_price = video_numb * video_price * 0.1
+total_price = video_numb * video_price + cpu_price * cpu_numb + ram_price * ram_numb
+
+if video_numb > cpu_numb:
+    total_price = total_price * 0.85
+    
+difference = abs(petar_budget - total_price)
+
+if petar_budget >= total_price:
+    print(f"You have {difference:.2f} leva left!")
+else:
+    print(f"Not enough money! You need {difference:.2f} leva more!")
