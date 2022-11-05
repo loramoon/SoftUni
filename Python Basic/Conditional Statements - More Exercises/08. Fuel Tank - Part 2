@@ -1,0 +1,25 @@
+type_fuel = str(input())
+volume = float(input())
+card = str(input())
+gasoline = 2.22
+diesel = 2.33
+gas = 0.93
+total_price = 0
+
+if card == "Yes":
+    gasoline = gasoline - 0.18
+    diesel = diesel - 0.12
+    gas = gas - 0.08
+if type_fuel == "Gas":
+    total_price = volume * gas
+elif type_fuel == "Gasoline":
+    total_price = volume * gasoline
+elif type_fuel == "Diesel":
+    total_price = volume * diesel
+if 20 <= volume <= 25:
+    total_price = total_price * 0.92
+elif volume > 25:
+    total_price = total_price * 0.9
+else:
+    total_price = total_price
+print(f"{total_price:.2f} lv.")
