@@ -1,0 +1,10 @@
+type_fuel = str(input())
+current_liters = float(input())
+
+if type_fuel in ("Diesel", "Gasoline", "Gas"):
+    if current_liters >= 25:
+        print(f"You have enough {type_fuel.lower()}.")
+    else:
+        print(f"Fill your tank with {type_fuel.lower()}!")
+else:
+    print(f"Invalid fuel!")
