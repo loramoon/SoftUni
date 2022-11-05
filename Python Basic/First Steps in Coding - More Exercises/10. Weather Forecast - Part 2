@@ -1,0 +1,13 @@
+value = float(input())
+if 5 <= value < 12:
+    print("Cold")
+elif value < 15:
+    print("Cool")
+elif value <= 20:
+    print("Mild")
+elif value < 26:
+    print("Warm")
+elif value <= 35:
+    print("Hot")
+else:
+    print("unknown")
