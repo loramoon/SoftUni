@@ -1,0 +1,24 @@
+trip_price = float(input())
+count_puzzles = int(input())
+count_talk_dolls = int(input())
+count_teddy_bears = int(input())
+count_minions = int(input())
+count_trucks = int(input())
+
+total_price = count_puzzles * 2.60 + count_talk_dolls * 3 + count_teddy_bears * 4.10 + count_minions * 8.20 + count_trucks * 2
+count_toys = count_puzzles + count_talk_dolls + count_teddy_bears + count_minions + count_trucks
+
+if count_toys >= 50:
+    discount = 0.25 * total_price
+    total_price -= discount
+
+ended_price = total_price
+rent = 0.1 * ended_price
+profit = ended_price - rent
+
+if profit >= trip_price:
+    money_left = profit - trip_price
+    print(f"Yes! {money_left:.2f} lv left.")
+else:
+    money_more_needed = trip_price - profit
+    print(f"Not enough money! {money_more_needed:.2f} lv needed.")
