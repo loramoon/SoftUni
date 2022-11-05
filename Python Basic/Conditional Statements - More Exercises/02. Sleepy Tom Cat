@@ -1,0 +1,6 @@
+day = int(input())
+total = (365 - day) * 63 + day * 127
+diff = abs(total - 30000)
+
+print('Tom will run away' if total >= 30000 else 'Tom sleeps well')
+print(f'{diff // 60} hours and {diff % 60} minutes {"more" if total >= 30000 else "less"} for play')
