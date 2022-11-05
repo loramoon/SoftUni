@@ -1,0 +1,5 @@
+deposit_value = float(input())
+deposit_term = int(input())
+year_rate = float(input())/100
+total_value = deposit_value + deposit_term * ((deposit_value * year_rate) / 12)
+print(total_value)
