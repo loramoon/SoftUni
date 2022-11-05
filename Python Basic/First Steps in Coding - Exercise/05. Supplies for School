@@ -1,0 +1,9 @@
+pen_packet_price = 5.80
+marker_packet_price = 7.20
+fluid_l_price = 1.20
+pen_packet = int(input())
+marker_packet = int(input())
+fluid_l = int(input())
+discount = float(input()) / 100
+total_final = ((pen_packet_price * pen_packet) + (marker_packet * marker_packet_price) + (fluid_l_price * fluid_l)) * (1 - discount)
+print(total_final)
