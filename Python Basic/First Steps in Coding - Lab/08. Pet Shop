@@ -1,0 +1,6 @@
+dog_food_packages=int(input())
+cat_food_packages=int(input())
+cat_food_price_all=cat_food_packages*4
+dog_food_price_all=dog_food_packages*2.50
+all_cost=dog_food_price_all+cat_food_price_all
+print(f"{all_cost} lv.")
