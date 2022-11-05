@@ -1,0 +1,7 @@
+import math
+
+r = float(input())
+calculated_area = math.pi * 2 * r
+calculated_parameter = math.pi * r * r
+print(f"{calculated_parameter:.2f}")
+print(f"{calculated_area:.2f}")
