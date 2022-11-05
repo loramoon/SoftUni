@@ -1,0 +1,15 @@
+chicken_menu = 10.35
+fish_menu = 12.40
+veg_menu = 8.15
+
+number_chicken_menu = int(input())
+number_fish_menu = int(input())
+number_veg_menu = int(input())
+
+total = (chicken_menu * number_chicken_menu) + (fish_menu * number_fish_menu) + (veg_menu * number_veg_menu)
+dessert = 0.20 * total
+delivery = 2.50
+final = total + dessert + delivery
+format_final = "{:.2f}".format(final)
+
+print(format_final)
