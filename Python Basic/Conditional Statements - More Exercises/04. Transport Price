@@ -1,0 +1,19 @@
+distance = int(input())
+day_or_night = input()
+price = 0.00
+
+if day_or_night == "day":
+    taxi = 0.79
+else:
+    taxi = 0.90
+
+if distance < 20:
+    price = 0.70 + taxi * distance
+
+if 20 <= distance <= 100:
+    price = distance * 0.09
+
+if distance >= 100:
+    price = distance * 0.06
+
+print(f"{price:.2f}")
