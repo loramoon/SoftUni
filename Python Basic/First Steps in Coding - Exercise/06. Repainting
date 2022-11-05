@@ -1,0 +1,12 @@
+need_nylon_sqm = int(input()) + 2
+need_paint_l = int(input()) * 1.1
+need_razreditel_l = int(input())
+hours_work = int(input())
+price_nylon = 1.50
+price_paint = 14.50
+price_razreditel = 5.00
+bags = 0.40
+total = (need_nylon_sqm * price_nylon) + (need_paint_l * price_paint) + (need_razreditel_l * price_razreditel) + bags
+salary = total * 0.30 * hours_work
+all = total + salary
+print(all)
