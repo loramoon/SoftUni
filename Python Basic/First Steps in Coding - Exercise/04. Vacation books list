@@ -1,0 +1,6 @@
+from math import trunc
+page_number_book = int(input())
+pages_per_hour = int(input())
+days_for_reading = int(input())
+hours_per_day = page_number_book / pages_per_hour / days_for_reading
+print(trunc(hours_per_day))
