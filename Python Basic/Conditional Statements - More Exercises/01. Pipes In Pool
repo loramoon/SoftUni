@@ -1,0 +1,19 @@
+v = int(input())
+p1 = int(input())
+p2 = int(input())
+h = float(input())
+
+debit1 = p1 * h
+debit2 = p2 * h
+v1 = debit1 + debit2
+
+full_pool = v1 / v * 100
+tube1 = debit1 / v1 * 100
+tube2 = debit2 / v1 * 100
+over = v1 - v
+
+if v1 <= v:
+    print(f"The pool is {full_pool:.2f}% full."
+          f"Pipe 1: {tube1:.2f}%. Pipe 2: {tube2:.2f}%.")
+else:
+    print(f"For {h:.2f} hours the pool overflows with {over:.2f} liters.")
