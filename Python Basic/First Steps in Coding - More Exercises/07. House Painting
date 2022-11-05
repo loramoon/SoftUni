@@ -11,5 +11,5 @@ roof_square = 2 * x * y
 roof_triangle = x * h
 roof_area = roof_square + roof_triangle
 red_paint = roof_area / 4.3
-print(f"green_paint:.2f")
-print(f"red_paint:.2f")
+print(f"{green_paint:.2f}")
+print(f"{red_paint:.2f}")
