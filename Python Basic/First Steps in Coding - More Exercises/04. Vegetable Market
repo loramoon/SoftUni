@@ -1,0 +1,7 @@
+vegi_price = float(input())
+fruit_price = float(input())
+total_vegi_kg = int(input())
+total_fruit_kg = int(input())
+total = (vegi_price * total_vegi_kg) + (fruit_price * total_fruit_kg)
+euro = total / 1.94
+print(f"{euro:.2f}")
