@@ -1,0 +1,7 @@
+w = float(input())
+h = float(input())
+both_side = h - 1
+row_numer = both_side // .7
+col_number = w // 1.20
+places = row_numer * col_number - 3
+print(f"{places:.0f}")
