@@ -1,0 +1,12 @@
+budget = float(input())
+statists = int(input())
+price_cloth = float(input())
+decor = budget * 0.1
+if statists > 150:
+    price_cloth = price_cloth * 0.9
+cost = decor + price_cloth * statists
+difference = abs(budget - cost)
+if cost > budget:
+    print(f"Not enough money!\nWingard needs {difference:.2f} leva more.")
+else:
+    print(f"Action!\nWingard starts filming with {difference:.2f} leva left.")
