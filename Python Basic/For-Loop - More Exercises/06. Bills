@@ -1,0 +1,17 @@
+month = int(input())
+electr_bill = 0
+water_bill = 20
+internet_bill = 15
+
+for i in range(month):
+    electr = float(input())
+    electr_bill += electr
+water_bill *=month
+internet_bill *=month
+other_bill = (electr_bill+water_bill+internet_bill)*1.2
+
+print(f"Electricity: {electr_bill:.2f} lv")
+print(f"Water: {water_bill:.2f} lv")
+print(f"Internet: {internet_bill:.2f} lv")
+print(f"Other: {other_bill:.2f} lv")
+print(f"Average: {((electr_bill+water_bill+internet_bill+other_bill)/month):.2f} lv")
