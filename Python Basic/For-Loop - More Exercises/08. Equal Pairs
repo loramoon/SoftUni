@@ -1,0 +1,14 @@
+list = []
+n = int(input())
+maxDiff=0
+for i in range(n):
+    a = float(input())
+    b = float(input())
+    value = a + b
+    list.append(value)
+    if i>0:
+        maxDiff = max(maxDiff, abs(list[i] - list[i-1]))
+if list.count(value) == n:
+    print(f"Yes, value={value:.0f}")
+else:
+    print(f"No, maxdiff={maxDiff:.0f}")
