@@ -1,0 +1,22 @@
+lillys_age = int(input())
+price_washing_machine = float(input())
+price_of_one_toy = int(input())
+
+toys = 0
+money = 0
+
+for age in range(1, lillys_age + 1):
+    if age % 2 == 0:
+        money += (age * 5) - 1
+    else:
+        toys += 1
+
+toys *= price_of_one_toy
+money_after_years = toys + money
+
+if money_after_years >= price_washing_machine:
+    money_left = money_after_years - price_washing_machine
+    print(f'Yes! {money_left:.2f}')
+else:
+    money_needed = price_washing_machine - money_after_years
+    print(f'No! {money_needed:.2f}')
