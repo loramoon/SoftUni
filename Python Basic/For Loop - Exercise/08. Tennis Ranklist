@@ -1,0 +1,22 @@
+import math
+
+numb_tournirs = int(input())
+basic_points = int(input())
+total_point =0
+wins = 0
+
+for _ in range (numb_tournirs):
+    rang = input()
+    if rang == "W":
+        total_point+=2000
+        wins +=1
+    elif rang == "F":
+        total_point+=1200
+    elif rang == "SF":
+        total_point+=720
+total_point+=basic_points
+print(f"Final points: {total_point}")
+average_points = (total_point-basic_points)//(numb_tournirs)
+print(f"Average points: {average_points:.0f}")
+wins_pers = wins/numb_tournirs*100
+print(f"{wins_pers:.2f}%")
