@@ -1,0 +1,18 @@
+period = int(input())
+doctors = 7
+covered = 0
+noncovered = 0
+
+for i in range (1, period+1):
+    number_patiences = int(input())
+    if i % 3==0 and noncovered>covered:
+        doctors+=1
+    if number_patiences<=7:
+        covered += number_patiences
+    else:
+        noncovered += number_patiences-doctors
+        covered += doctors
+
+
+print(f"Treated patients: {covered}.")
+print(f"Untreated patients: {noncovered}.")
