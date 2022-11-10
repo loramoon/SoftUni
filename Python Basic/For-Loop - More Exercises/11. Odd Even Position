@@ -1,0 +1,44 @@
+n = int(input())
+import sys
+max_numо = -sys.maxsize
+min_numо = sys.maxsize
+max_nume = -sys.maxsize
+min_nume = sys.maxsize
+
+sum_odds = 0
+sum_even = 0
+
+for i in range(1, n+1):
+    numbers = float(input())
+    if i%2==1:
+        sum_odds +=numbers
+        if numbers < min_numо:
+            min_numо = numbers
+        if numbers > max_numо:
+            max_numо = numbers
+    else:
+        sum_even += numbers
+        if numbers < min_nume:
+            min_nume = numbers
+        if numbers > max_nume:
+            max_nume = numbers
+
+print(f"OddSum={sum_odds:.2f},")
+if min_numо == sys.maxsize:
+    print ("OddMin=No,")
+else:
+    print(f"OddMin={min_numо:.2f},")
+if max_numо == -sys.maxsize:
+    print("OddMax=No,")
+else:
+    print(f"OddMax={max_numо:.2f},")
+
+print(f"EvenSum={sum_even:.2f},")
+if min_nume == sys.maxsize:
+    print("EvenMin=No,")
+else:
+    print(f"EvenMin={min_nume:.2f},")
+if max_nume == -sys.maxsize:
+    print("EvenMax=No")
+else:
+    print(f"EvenMax={max_nume:.2f}")
