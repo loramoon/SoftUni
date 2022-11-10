@@ -1,0 +1,37 @@
+students = int(input())
+n1=0
+n2=0
+n3=0
+n4=0
+n5=0
+grade1=0
+grade2=0
+grade3=0
+grade4=0
+
+
+for _ in range(students):
+    grade = float(input())
+    if grade<3:
+        n1 +=1
+        grade1 += grade
+    elif grade<4:
+        n2 +=1
+        grade2 += grade
+    elif grade<5:
+        n3 +=1
+        grade3 += grade
+    elif grade<=6:
+        n4 +=1
+        grade4 += grade
+
+top = n4/students
+print(f"Top students: {top:.2%}")
+between1 = n3/students
+print(f"Between 4.00 and 4.99: {between1:.2%}")
+between2 = n2/students
+print(f"Between 3.00 and 3.99: {between2:.2%}")
+fail = n1/students
+print(f"Fail: {fail:.2%}")
+average = (grade1+grade2+grade3+grade4)/students
+print(f"Average: {average:.2f}")
