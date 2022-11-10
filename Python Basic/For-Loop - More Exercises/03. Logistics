@@ -1,0 +1,36 @@
+number_of_lorries = int(input())
+
+total_price = 0
+price = 0
+mikrobus = 0
+kamion = 0
+vlak = 0
+total_tones = 0
+for i in range(0, number_of_lorries):
+    tones_per_lorry = int(input())
+
+    if 0 <= tones_per_lorry <= 3:
+        price = 200
+        mikrobus += tones_per_lorry
+    elif 3 < tones_per_lorry <= 11:
+        price = 175
+        kamion += tones_per_lorry
+    else:
+        price = 120
+        vlak += tones_per_lorry
+    total_tones += tones_per_lorry
+    total_price += tones_per_lorry * price
+
+
+total_percent = mikrobus + kamion + vlak
+average_price = total_price / total_tones
+print(f"{average_price:.2f}")
+
+percent_mikrobus = mikrobus / total_tones * 100
+print(f"{percent_mikrobus:.2f}%")
+
+percent_kamion = kamion / total_percent * 100
+print(f"{percent_kamion:.2f}%")
+
+percent_vlak = vlak / total_percent * 100
+print(f"{percent_vlak:.2f}%")
