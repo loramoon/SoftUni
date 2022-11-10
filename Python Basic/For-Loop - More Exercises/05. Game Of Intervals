@@ -1,0 +1,38 @@
+n = int(input())
+n1 = 0
+n2 = 0
+n3 = 0
+n4 = 0
+n5 = 0
+n6 = 0
+summarize = 0
+
+
+for i in range (n):
+    current_number = int(input())
+    if 0 <= current_number <= 9:
+        summarize += current_number * 0.2
+        n1 += 1
+    elif current_number <= 19:
+        summarize += current_number  *0.3
+        n2 + 1
+    elif current_number <= 29:
+        summarize += current_number * 0.4
+        n3 += 1
+    elif current_number <= 39:
+        summarize += 50
+        n4 += 1
+    elif current_number <= 50:
+        summarize += 100
+        n5 += 1
+    else:
+        summarize = summarize / 2
+        n6 += 1
+        
+print(f"{summarize:.2f}")
+print (f"From 0 to 9: {n1/n:.2%}")
+print (f"From 10 to 19: {n2/n:.2%}")
+print (f"From 20 to 29: {n3/n:.2%}")
+print (f"From 30 to 39: {n4/n:.2%}")
+print (f"From 40 to 50: {n5/n:.2%}")
+print (f"Invalid numbers: {n6/n:.2%}")
