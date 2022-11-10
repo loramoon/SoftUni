@@ -1,0 +1,35 @@
+capacity_stadium = int(input())
+fans = int(input())
+
+sector_a = 0
+sector_b = 0
+sector_v = 0
+sector_g = 0
+
+
+
+for i in range(0, fans):
+    sector = input()
+    if sector == "A":
+        sector_a += 1
+    elif sector == "B":
+        sector_b += 1
+    elif sector == "V":
+        sector_v += 1
+    elif sector == "G":
+        sector_g += 1
+
+sector_a_perc = sector_a / fans * 100
+print(f"{sector_a_perc:.2f}%")
+
+sector_b_perc = sector_b / fans * 100
+print(f"{sector_b_perc:.2f}%")
+
+sector_v_perc = sector_v / fans * 100
+print(f"{sector_v_perc:.2f}%")
+
+sector_g_perc = sector_g / fans * 100
+print(f"{sector_g_perc:.2f}%")
+
+stadium_perc = fans / capacity_stadium * 100
+print(f"{stadium_perc:.2f}%")
