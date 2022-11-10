@@ -1,0 +1,17 @@
+artist_name = input()
+academy_points = float(input())
+n = int(input())
+
+for _ in range(n):
+    jury_name = input()
+    jury_name_len = len(jury_name)
+    jury_points = float(input())
+    jury_points =(jury_name_len*jury_points)/2
+    academy_points +=jury_points
+    if academy_points>1250.5:
+        print(f"Congratulations, {artist_name} got a nominee for leading role with {academy_points:.1f}!")
+        break
+if academy_points<=1250.5:
+    diff=abs(academy_points-1250.5)
+    print(f"Sorry, {artist_name} you need {diff:.1f} more!")
+
