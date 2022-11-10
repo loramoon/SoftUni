@@ -1,0 +1,16 @@
+money = float(input()) #[1.00 ... 1 000 000.00]
+year = int(input()) #[1801 ... 1900]
+cost1 = 0
+cost2 = 0
+
+for i in range(1800, year+1):
+    if i % 2 == 0:
+        cost1 += 12000
+    elif i % 2 == 1:
+        cost2 += 12000+50*(18+i-1800)
+total_cost = cost1+cost2
+diff=abs(money-total_cost)
+if money>=total_cost:
+    print(f"Yes! He will live a carefree life and will have {diff:.2f} dollars left.")
+else:
+    print(f"He will need {diff:.2f} dollars to survive.")
