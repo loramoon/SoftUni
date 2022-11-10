@@ -18,24 +18,24 @@ class Shape(ABC):
 class Circle(Shape):
     def __init__(self, r):
         super().__init__()
-        self.r = r
-
+        self.__r = r
 
     def calculate_area(self):
-        return math.pi * self.r * self.r
+        return math.pi * self.__r * self.__r
 
     def calculate_perimeter(self):
-        return 2 * math.pi * self.r
+        return 2 * math.pi * self.__r
+
 
 class Rectangle(Shape):
     def __init__(self, a, b):
         super().__init__()
-        self.a = a
-        self.b = b
+        self.__a = a
+        self.__b = b
 
     def calculate_area(self):
-        return self.a * self.b
+        return self.__a * self.__b
 
     def calculate_perimeter(self):
-        return 2 * (self.a + self.b)
+        return 2 * (self.__a + self.__b)
 
