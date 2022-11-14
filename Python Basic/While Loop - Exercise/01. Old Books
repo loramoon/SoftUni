@@ -1,0 +1,14 @@
+number_of_book = 0
+name = input()
+title = ''
+while title != name:
+    title = input()
+    if title == 'No More Books':
+        print (f"The book you search is not here! \n"
+               f"You checked {number_of_book} books.")
+        break
+    elif title == name:
+        print (f"You checked {number_of_book} books and found it.")
+        break
+    else:
+        number_of_book += 1
