@@ -1,0 +1,45 @@
+expectedSUm = int(input())
+command = ''
+itemsPrice = 0
+transactionsCounter = 0
+cash = 0
+transactionCash = 0
+card = 0
+transactionCard = 0
+total_sum = 0
+
+while total_sum < expectedSUm:
+    command = input()
+    if command == "End":
+        print("Failed to collect required money for charity.")
+        break
+    itemsPrice = int(command)
+    transactionsCounter += 1
+    if transactionsCounter % 2 != 0:
+        if itemsPrice > 100:
+            print("Error in transaction!")
+        else:
+            print("Product sold!")
+            cash += 1
+            transactionCash += itemsPrice
+            total_sum += itemsPrice
+    else:
+        if itemsPrice < 10:
+            print("Error in transaction!")
+        else:
+            print("Product sold!")
+            card += 1
+            transactionCard += itemsPrice
+            total_sum += itemsPrice
+
+if command != 'End':
+    if transactionCash != 0 and cash != 0:
+        totalSumCash = transactionCash / cash
+        print(f"Average CS: {totalSumCash:.2f}")
+    else:
+        print(f"Average CS: {0:.2f}")
+    if transactionCard != 0 and card != 0:
+        totalSumCard = transactionCard / card
+        print(f"Average CC: {totalSumCard:.2f}")
+    else:
+        print(f"Average CC: {0:.2f}")
