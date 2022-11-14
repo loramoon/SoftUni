@@ -1,0 +1,15 @@
+money = 0.00
+current_entry=''
+
+while True:
+    current_entry = input()
+    if current_entry == "NoMoreMoney":
+        break
+    current_entry = float(current_entry)
+    if current_entry<0:
+        print("Invalid operation!")
+        break
+    else:
+        print (f"Increase: {current_entry:.2f}")
+        money +=current_entry
+print(f"Total: {money:.2f}")
