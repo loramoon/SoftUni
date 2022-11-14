@@ -1,0 +1,12 @@
+import sys
+min_num = sys.maxsize
+
+while True:
+    user_input = input()
+    if user_input=="Stop":
+        break
+    else:
+        user_input = int(user_input)
+        if user_input < min_num:
+            min_num = user_input
+print(min_num)
