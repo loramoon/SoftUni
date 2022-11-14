@@ -1,0 +1,17 @@
+out = ""
+word = ""
+con = "con"
+command = input()
+
+while command != "End":
+    if con.find(command) != -1:
+        con = con.replace(command, "")
+        if len(con) == 0:
+            out += word + " "
+            con = "con"
+            word = ""
+    elif command.isalpha():
+        word += command 
+    command = input()
+    
+print(out)
