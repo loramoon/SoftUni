@@ -1,0 +1,27 @@
+money_needed = float(input())
+owed_money = float(input())
+
+
+days_counter = 0
+total_money = owed_money
+days = 0
+while True:
+    action = input()
+    money = float(input())
+    days += 1
+
+    if action == "save":
+        total_money += money
+        days_counter = 0
+        if total_money >= money_needed:
+            print(f"You saved the money for {days} days.")
+            break
+    elif action == "spend":
+        total_money -= money
+        days_counter += 1
+        if days_counter == 5:
+            print("You can't save the money.")
+            print(days)
+            break
+        if total_money <= 0:
+            total_money = 0
