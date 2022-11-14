@@ -1,0 +1,12 @@
+import sys
+max_num = -sys.maxsize
+
+while True:
+    user_input = input()
+    if user_input == "Stop":
+        break
+    else:
+        user_input = int(user_input)
+        if user_input > max_num:
+            max_num = user_input
+print(max_num)
