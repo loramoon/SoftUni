@@ -1,0 +1,24 @@
+name = input()
+grades_counter = 0
+year_counter = 0
+failed_years = 0
+
+
+while True:
+    annual_grades = float(input())
+    year_counter += 1
+
+    if annual_grades < 4:
+        failed_years += 1
+
+        if failed_years == 2:
+            print(f"{name} has been excluded at {year_counter} grade")
+            break
+        year_counter -= 1
+
+    else:
+        grades_counter += annual_grades
+    if year_counter == 12:
+        average = grades_counter / 12
+        print(f"{name} graduated. Average grade: {average:.2f}")
+        break
