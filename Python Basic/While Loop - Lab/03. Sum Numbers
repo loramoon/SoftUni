@@ -1,0 +1,9 @@
+number = int(input())
+sum_of_user_numbers = 0
+current_number =0
+
+while sum_of_user_numbers < number:
+        current_number = int(input())
+        sum_of_user_numbers += current_number
+        
+print(sum_of_user_numbers)
