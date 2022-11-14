@@ -1,0 +1,21 @@
+width = int(input())
+length = int(input())
+height = int(input())
+volume = width*length*height
+current_input = ''
+current_input_int = 0
+boxes = 0
+
+while current_input!="Done":
+    current_input = input()
+    if current_input == "Done":
+        diff = volume-boxes
+        print (f"{diff} Cubic meters left.")
+        break
+    else:
+        current_input_int = int(current_input)
+        boxes += current_input_int
+        if boxes>volume:
+            diff = boxes - volume
+            print(f"No more free space! You need {diff} Cubic meters more.")
+            break
