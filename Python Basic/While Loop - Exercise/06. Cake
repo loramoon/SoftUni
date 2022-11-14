@@ -1,0 +1,17 @@
+wide = int(input())
+length = int(input())
+parts = wide*length
+guests = ''
+guests_int = 0
+
+while guests != "STOP":
+    guests = input()
+    if guests == "STOP":
+        diff = parts - guests_int
+        print (f"{diff} pieces are left." )
+        break
+    guests_int += int(guests)
+    if guests_int > parts:
+        diff = guests_int - parts
+        print(f"No more cake left! You need {diff} pieces more.")
+        break
