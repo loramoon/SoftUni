@@ -1,0 +1,23 @@
+bad_score_limit =int(input())
+bad_scores = 0
+tasks = 0
+total_good_score = 0
+score = 0
+last_task = ''
+while True:
+    task_name = input()
+    if task_name == "Enough":
+        print(f"Average score: {(total_good_score / tasks):.2f} \n"
+              f"Number of problems: {tasks} \n"
+              f"Last problem: {last_task}")
+        break
+    else:
+        score = int(input())
+        last_task = task_name
+        if score <= 4:
+            bad_scores += 1
+        if bad_scores >= bad_score_limit:
+            print(f"You need a break, {bad_scores} poor grades.")
+            break
+        total_good_score += score
+        tasks += 1
