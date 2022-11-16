@@ -1,0 +1,13 @@
+floor = int(input())
+flat = int(input())
+
+for i in range(floor, 0, -1):
+    for j in range(0, flat):
+        if i == floor:
+            print(f"L{i}{j} ", end='')
+        else:
+            if i != floor and i % 2 != 0:
+                print(f"A{i}{j} ", end='')
+            elif i != floor and i % 2 == 0:
+                print(f"O{i}{j} ", end='')
+    print()
