@@ -1,9 +1,9 @@
 class vowels:
-    ALL_VOWELS = ["a", "o", "u", "e", "i", "y", "Y", "A", "O", "U", "E", "I"]
+    ALL_VOWELS = "aoieuyAOIEUY"
 
     def __init__(self, text):
         self.text = text
-        self.vowels_in_text = [el for el in self.text if el in vowels.ALL_VOWELS]
+        self.vowels_in_text = [el for el in self.text if el in self.ALL_VOWELS]
 
     def __iter__(self):
         return self
