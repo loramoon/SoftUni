@@ -1,0 +1,4 @@
+def reverse_text(text):
+    for ch in text[::-1]:
+        yield ch
+
