@@ -1,0 +1,8 @@
+def type_check(expected_type):
+    def decorator(func):
+        def wrapper(arg):
+            if not isinstance(arg, expected_type):
+                return "Bad Type"
+            return func(arg)
+        return wrapper
+    return decorator
