@@ -1,5 +1,3 @@
-from collections import deque
-
 from project.astronaut.biologist import Biologist
 from project.astronaut.geodesist import Geodesist
 from project.astronaut.meteorologist import Meteorologist
@@ -8,8 +6,10 @@ from project.validator import Validator
 from project.planet.planet_repository import PlanetRepository
 from project.astronaut.astronaut_repository import AstronautRepository
 
-
 class SpaceStation:
+    successful_missions = 0
+    unsuccessful_missions = 0
+
     def __init__(self):
         self.planet_repository = PlanetRepository()
         self.astronaut_repository = AstronautRepository()
@@ -52,6 +52,7 @@ class SpaceStation:
     def send_on_mission(self, planet_name: str):
         best_astronauts = {}
         astro_on_mission = 0
+
         planet = Validator.find_planet(planet_name, self.planet_repository.planets)
 
         for astronaut in self.astronaut_repository.astronauts:
@@ -61,7 +62,7 @@ class SpaceStation:
             raise Exception("You need at least one astronaut to explore the planet!")
         going_out = dict(sorted(best_astronauts.items(), key=lambda item: item[1], reverse=True))
 
-        for astronaut, oxygen in going_out.items():
+        for astronaut in going_out.keys():
             if not planet.items or astro_on_mission == 5:
                 break
             while astronaut.oxygen > 0 and planet.items:
@@ -70,8 +71,21 @@ class SpaceStation:
             astro_on_mission += 1
 
         if not planet.items:
+            self.successful_missions += 1
             return f"Planet: {planet_name} was explored. {astro_on_mission} astronauts participated in collecting items."
+        self.unsuccessful_missions += 1
         return "Mission is not completed."
 
     def report(self):
-        pass
+        result = f"{self.successful_missions} successful missions!\n" \
+                 f"{self.unsuccessful_missions} missions were not completed!\n" \
+                 f"Astronauts' info:\n"
+
+        for astronaut in self.astronaut_repository.astronauts:
+            result += f"Name: {astronaut.name}\n" \
+                   f"Oxygen: {astronaut.oxygen}\n"
+            if not astronaut.backpack:
+                result += f"Backpack items: none\n"
+            else:
+                result += f"Backpack items: {', '.join(astronaut.backpack)}\n"
+        return result
