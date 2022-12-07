@@ -1,7 +1,7 @@
 class Validator:
     @staticmethod
     def if_name_is_empty_or_space_string(string, message):
-        if string.strip == '':
+        if not len(string.strip()) > 0:
             raise ValueError(message)
 
     @staticmethod
