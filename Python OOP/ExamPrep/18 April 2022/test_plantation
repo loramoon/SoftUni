@@ -1,0 +1,80 @@
+from unittest import TestCase, main
+
+from project.plantation import Plantation
+
+
+class PlantationTests(TestCase):
+
+    def setUp(self) -> None:
+        self.plantation1 = Plantation(2)
+        self.plantation1.plants = {}
+        self.plantation1.workers = []
+
+    def test_init(self):
+        self.assertEqual(2, self.plantation1.size)
+        self.assertEqual({}, self.plantation1.plants)
+        self.assertEqual([], self.plantation1.workers)
+
+    def test_init_raise_negative_size(self):
+        with self.assertRaises(ValueError) as ve:
+            self.plantation1.size = -5
+        self.assertEqual("Size must be positive number!", str(ve.exception))
+
+    def test_hire_same_worker_raise(self):
+        self.plantation1.workers = ["A"]
+        with self.assertRaises(ValueError) as ve:
+            self.plantation1.hire_worker("A")
+        self.assertEqual("Worker already hired!", str(ve.exception))
+
+    def test_hire_new_worker(self):
+        self.plantation1.workers = ["A"]
+        result = self.plantation1.hire_worker("B")
+        self.assertEqual(["A", "B"], self.plantation1.workers)
+        self.assertEqual("B successfully hired.", result)
+
+    def test_len(self):
+        self.plantation1.plants = {"A": "2", "B": "3"}
+        result = self.plantation1.__len__()
+        self.assertEqual(2, result)
+
+    def test_planting_no_such_worker(self):
+        with self.assertRaises(ValueError) as ve:
+            self.plantation1.planting("A", "B")
+        self.assertEqual("Worker with name A is not hired!", str(ve.exception))
+
+    def test_planting_add_new_plant_above_size(self):
+        self.plantation1.plants = {"A": "2", "B": "3"}
+        self.plantation1.workers = ["W"]
+        with self.assertRaises(ValueError) as ve:
+            self.plantation1.planting("W", "C")
+        self.assertEqual("The plantation is full!", str(ve.exception))
+
+    def test_existing_worker_plant_new_plant(self):
+        self.plantation1.workers = ["A"]
+        self.plantation1.plants = {"A": ["flower"]}
+        result = self.plantation1.planting("A", "flower")
+        self.assertEqual("A planted flower.", result)
+        self.assertEqual({'A': ['flower', 'flower']}, self.plantation1.plants)
+
+    def test_planting_first_plant(self):
+        self.plantation1.workers = ["A"]
+        result = self.plantation1.planting("A", "flower")
+        self.assertEqual("A planted it's first flower.", result)
+        self.assertEqual({'A': ['flower']}, self.plantation1.plants)
+
+    def test_str(self):
+        self.plantation1.workers = ["A", "B"]
+        self.plantation1.planting("A", "flower")
+        expected = 'Plantation size: 2\nA, B\nA planted: flower'
+        actual = self.plantation1.__str__()
+        self.assertEqual(expected, actual)
+
+    def test_repr(self):
+        self.plantation1.workers = ["A", "B"]
+        expected = "Size: 2\nWorkers: A, B"
+        actual = self.plantation1.__repr__()
+        self.assertEqual(expected, actual)
+
+
+if __name__ == "__main__":
+    main()
