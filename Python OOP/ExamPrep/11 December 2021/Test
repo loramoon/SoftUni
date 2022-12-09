@@ -1,0 +1,71 @@
+from project.team import Team
+
+from unittest import TestCase, main
+
+
+class TeamTest(TestCase):
+    def setUp(self) -> None:
+        self.team = Team("Team")
+
+    def test_correct__init__(self):
+        self.assertEqual("Team", self.team.name)
+        self.assertEqual({}, self.team.members)
+
+    def test_name_no_letters_only_raise(self):
+        with self.assertRaises(ValueError) as ve:
+            self.team = Team("Team1")
+        self.assertEqual("Team Name can contain only letters!", str(ve.exception))
+
+    def test_add_member(self):
+        self.team.members['Ivan'] = 18
+        name_3, name_1, name_2 = "Ivan", "Mariya", "Gosho"
+        result = self.team.add_member(Ivan=17, Mariya=10, Gosho=15)
+        expected_result = f"Successfully added: {name_1}, {name_2}"
+        self.assertEqual(expected_result, result)
+        self.assertEqual(18, self.team.members[name_3])
+        self.assertEqual(10, self.team.members[name_1])
+        self.assertEqual(15, self.team.members[name_2])
+
+    def test_remove_member(self):
+        self.team.add_member(Ivan=17, Mariya=10, Gosho=15)
+        result = self.team.remove_member("Ivan")
+        self.assertEqual("Member Ivan removed", result)
+        self.assertEqual({"Mariya": 10, "Gosho": 15}, self.team.members)
+        result = self.team.remove_member("Misho")
+        self.assertEqual("Member with name Misho does not exist", result)
+        self.assertEqual({"Mariya": 10, "Gosho": 15}, self.team.members)
+
+    def test_greater_than(self):
+        self.team.members = {"Mila": 5, "Nika": 2}
+        a = Team("A")
+        a.members = {"Mariya": 10, "Gosho": 15, "Lina": 8}
+        b = Team("B")
+        b.members = {"Lora": 5}
+        self.assertEqual(False, self.team > a)
+        self.assertEqual(True, self.team > b)
+
+    def test_len_teams(self):
+        self.team.members = {"Mila": 5, "Nika": 2}
+        result = self.team.__len__()
+        self.assertEqual(2, result)
+
+    def test_add_two_teams(self):
+        self.team.members = {"Mila": 5, "Nika": 2}
+        a = Team("A")
+        a.members = {"Mariya": 10, "Gosho": 15, "Lina": 8}
+        new_team = self.team.__add__(a)
+        self.assertEqual("TeamA", new_team.name)
+        self.assertEqual({'Gosho': 15, 'Lina': 8, 'Mariya': 10, 'Mila': 5, 'Nika': 2}, new_team.members)
+
+    def test_str(self):
+        self.team.members = {"Mila": 5, "Nika": 2}
+        a = Team("A")
+        a.members = {"Mariya": 10}
+        new_team = self.team.__add__(a)
+        result = new_team.__str__()
+        expected = 'Team name: TeamA\nMember: Mariya - 10-years old\n' \
+                   'Member: Mila - 5-years old\nMember: Nika - 2-years old'
+        self.assertEqual(expected, result)
+
+if __name__ == "__main__":
+    main()
