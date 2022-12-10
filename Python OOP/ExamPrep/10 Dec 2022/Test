@@ -1,0 +1,58 @@
+from project.toy_store import ToyStore
+from unittest import TestCase, main
+
+
+class ToyStoreTest(TestCase):
+    def setUp(self) -> None:
+        self.store = ToyStore()
+
+    def test_correct__init__(self):
+        self.assertEqual({'A': None, 'B': None, 'C': None, 'D': None, 'E': None, 'F': None, 'G': None},
+                         self.store.toy_shelf)
+
+    def test_add_toy_no_shelf_raise(self):
+        with self.assertRaises(Exception) as ex:
+            self.store.add_toy("O", "A")
+        self.assertEqual("Shelf doesn't exist!", str(ex.exception))
+
+    def test_add_toy_same_shelf_self_toy(self):
+        self.store.toy_shelf = {"A": "O"}
+        with self.assertRaises(Exception) as ex:
+            self.store.add_toy("A", "O")
+        self.assertEqual("Toy is already in shelf!", str(ex.exception))
+
+    def test_add_toy_not_shelf(self):
+        self.store.toy_shelf = {"A": "O"}
+        with self.assertRaises(Exception) as ex:
+            self.store.add_toy("A", "E")
+        self.assertEqual("Shelf is already taken!", str(ex.exception))
+
+    def test_add_toy_added_ok(self):
+        result = self.store.add_toy("A", "O")
+        self.assertEqual("Toy:O placed successfully!", result)
+        self.assertEqual({'A': "O", 'B': None, 'C': None, 'D': None, 'E': None, 'F': None, 'G': None}, self.store.toy_shelf)
+
+    def test_remove_toy_no_such_shelf(self):
+        with self.assertRaises(Exception) as ex:
+            self.store.remove_toy("W", "O")
+        self.assertEqual("Shelf doesn't exist!", str(ex.exception))
+
+    def test_remove_toy_no_such_toy(self):
+        self.store.add_toy("A", "O")
+        with self.assertRaises(Exception) as ex:
+            self.store.remove_toy("A", "E")
+        self.assertEqual("Toy in that shelf doesn't exists!", str(ex.exception))
+
+    def test_remove_toy_ok(self):
+        self.store.add_toy("A", "O")
+        result = self.store.remove_toy("A", "O")
+        self.assertEqual("Remove toy:O successfully!", result)
+        self.assertEqual({'A': None, 'B': None, 'C': None, 'D': None, 'E': None, 'F': None, 'G': None},
+                        self.store.toy_shelf)
+
+
+if __name__ == "__main__":
+    main()
+
+
+
