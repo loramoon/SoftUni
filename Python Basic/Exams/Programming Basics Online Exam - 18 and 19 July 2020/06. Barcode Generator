@@ -1,0 +1,19 @@
+start = int(input())
+end = int(input())
+
+a = int(start / 1000)
+b = int((start / 100) % 10)
+c = int((start / 10) % 10)
+d = int(start % 10)
+
+A = int(end / 1000)
+B = int((end / 100) % 10)
+C = int((end / 10) % 10)
+D = int(end % 10)
+
+for i in range(a, A + 1):
+    for j in range(b, B + 1):
+        for k in range(c, C + 1):
+            for l in range(d, D + 1):
+                if i % 2 != 0 and j % 2 != 0 and k % 2 != 0 and l % 2 != 0:
+                    print(f'{i*1000+j*100+k*10+l}', end=' ')
