@@ -1,0 +1,7 @@
+rent = float(input())
+pie = rent*0.2
+drinks = pie*0.55
+animator = rent/3
+
+total_price = rent+pie+drinks+animator
+print(f"{total_price}")
