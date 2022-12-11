@@ -1,0 +1,18 @@
+command = ''
+best_player = ''
+best_score = -1
+while command != "END":
+    command = input()
+    if command == "END":
+        break
+    score = int(input())
+    if score>best_score:
+        best_score = score
+        best_player = command
+    if score >= 10:
+        break
+print(f"{best_player} is the best player!")
+if best_score >= 3:
+    print(f"He has scored {best_score} goals and made a hat-trick !!!")
+else:
+    print(f"He has scored {best_score} goals.")
