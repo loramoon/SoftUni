@@ -1,0 +1,12 @@
+from math import floor
+record_sec = float(input())
+distance_m = float(input())
+time_sec_m = float(input())
+diminish = floor(distance_m/50)
+diminish_time=diminish*30
+georgi_time = (distance_m*time_sec_m)+diminish_time
+difference = abs(georgi_time-record_sec)
+if georgi_time< record_sec:
+    print (f"Yes! The new record is {georgi_time:.2f} seconds.")
+else:
+    print (f"No! He was {difference:.2f} seconds slower.")
