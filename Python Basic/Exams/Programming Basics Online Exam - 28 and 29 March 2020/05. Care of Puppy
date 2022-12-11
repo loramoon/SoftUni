@@ -1,0 +1,13 @@
+food = int(input())*1000
+command = ''
+eat = 0
+while command != "Adopted":
+    command = input()
+    if command == "Adopted":
+        break
+    eat += int(command)
+
+if food>=eat:
+    print(f"Food is enough! Leftovers: {food-eat} grams.")
+else:
+    print(f"Food is not enough. You need {eat-food} grams more.")
