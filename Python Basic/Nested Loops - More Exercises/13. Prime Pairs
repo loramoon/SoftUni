@@ -1,0 +1,27 @@
+import math
+
+start_first = int(input())
+start_second = int(input())
+end_first = int(input()) + start_first
+end_second = int(input()) + start_second
+first_prime = 11
+second_prime = 11
+
+for first in range(start_first, end_first + 1):
+    for second in range(start_second, end_second + 1):
+        first_is_prime = True
+        for div in range(2, math.ceil(first/2)+1):
+            if first % div == 0:
+                first_is_prime = False
+                break
+        if first_is_prime and first_is_prime !=0:
+            first_prime = first
+
+        second_is_prime = True
+        for div in range(2, math.ceil(second/2)+1):
+            if second % div == 0:
+                second_is_prime = False
+                break
+        if second_is_prime and first_is_prime:
+            second_prime = second
+            print(f"{first_prime*100+second_prime}")
