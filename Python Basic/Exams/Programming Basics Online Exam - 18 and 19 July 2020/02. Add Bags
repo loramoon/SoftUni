@@ -1,0 +1,22 @@
+price_bag_20kg=float(input())
+kg_bag=float(input())
+days_travel=int(input())
+number_bags=int(input())
+
+if 0 <= kg_bag < 10 :
+    price_bag=price_bag_20kg*0.2
+elif 10 <= kg_bag <= 20 :
+   price_bag=price_bag_20kg*0.5
+elif 20 < kg_bag :
+   price_bag=price_bag_20kg
+
+if 0 <= days_travel < 7 :
+    price_bag=price_bag*1.4
+elif 7 <= days_travel <= 30 :
+   price_bag=price_bag*1.15
+else: price_bag=price_bag*1.10
+
+price_bags=(number_bags*price_bag)
+format_price_bags="{:.2f}".format(price_bags)
+
+print(f" The total price of bags is: {format_price_bags} lv. ")
