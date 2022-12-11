@@ -1,0 +1,23 @@
+numb_days = int(input())
+total_food = float(input())
+dog_food_all = 0
+cat_food_all  = 0
+biscuits = 0
+for i in range(numb_days):
+    dog_food = int(input())
+    cat_food = int(input())
+    dog_food_all += dog_food
+    cat_food_all += cat_food
+    if (i+1) % 3==0:
+        biscuits += (dog_food+cat_food)*0.1
+
+eaten_food = dog_food_all+cat_food_all
+eaten_food_per = eaten_food/total_food
+dog_food_per = dog_food_all/eaten_food
+cat_food_per = cat_food_all/eaten_food
+
+
+print(f"Total eaten biscuits: {biscuits:.0f}gr.")
+print(f"{eaten_food_per:.2%} of the food has been eaten.")
+print(f"{dog_food_per:.2%} eaten from the dog.")
+print(f"{cat_food_per:.2%} eaten from the cat.")
