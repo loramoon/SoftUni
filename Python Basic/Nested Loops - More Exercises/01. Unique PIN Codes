@@ -1,0 +1,11 @@
+x1 = int(input())
+x2 = int(input())
+x3 = int(input())
+
+for n1 in range(1, x1+1):
+    for n2 in range(1, x2+1):
+        for n3 in range(1, x3+1):
+            if n1 % 2 != 0: continue
+            if n3 % 2 != 0: continue
+            if n2 not in (2,3, 5, 7): continue
+            print(f"{n1} {n2} {n3}")
