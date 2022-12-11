@@ -1,0 +1,11 @@
+coin_1 = int(input())
+coin_2 = int(input())
+buck_5 = int(input())
+money = int(input())
+
+for coin_1 in range(coin_1+1):
+    for coin_2 in range(coin_2+1):
+        for buck_5 in range(buck_5+1):
+            if coin_1+coin_2*2+buck_5*5==money:
+                print(f"{coin_1} * 1 lv. + {coin_2} * 2 lv. + {buck_5} * 5 lv. = {money} lv.")
+
