@@ -1,0 +1,17 @@
+M = int(input())
+count = 0
+password = 0
+the_password = 0
+for a in range (1, 10):
+    for b in range (1, 10):
+        for c in range (1, 10):
+            for d in range (1, 10):
+                if (a*b+c*d == M) and (a < b) and (c > d):
+                    password = 1000*a+100*b+10*c+d
+                    print(f'{password}', end=" ")
+                    count += 1
+                    if count == 4:
+                        the_password = password
+print()
+if count <4: print("No!"), exit()
+print(f"Password: {the_password}")
