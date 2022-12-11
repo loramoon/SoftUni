@@ -1,0 +1,12 @@
+bitcoins_numb = int(input())
+yens_numb = float(input())
+tax = float(input())/100
+bitcoin_price = 1168
+yens_price = 0.15*1.76
+dollar_price = 1.76
+euro_price = 1.95
+total_levs = bitcoin_price*bitcoins_numb+yens_price*yens_numb
+total_euro = total_levs/euro_price
+tax=total_euro*tax
+result = total_euro-tax
+print(f"{result:.2f}")
