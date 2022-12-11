@@ -1,0 +1,20 @@
+jury = int(input())
+presentation = ''
+sum_scores = 0
+all_scores = 0
+counter = 0
+while presentation != "Finish":
+    presentation = input()
+    if presentation == 'Finish':
+        break
+    counter += 1
+    for i in range(jury):
+        score = float(input())
+        sum_scores += score
+    average_student = sum_scores / jury
+    print(f'{presentation} - {average_student:.2f}.')
+    all_scores += average_student
+    sum_scores = 0
+
+total_grades_print = all_scores/counter
+print(f"Student's final assessment is {total_grades_print:.2f}.")
