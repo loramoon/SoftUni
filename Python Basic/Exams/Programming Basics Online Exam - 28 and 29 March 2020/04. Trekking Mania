@@ -1,0 +1,28 @@
+group_numb = int(input())
+total_people = 0
+n1 =0
+n2 =0
+n3 =0
+n4 =0
+n5 =0
+
+for _ in range (group_numb):
+    number_of_people = int(input())
+    if number_of_people<=5:
+        n1 += number_of_people
+    elif number_of_people<=12:
+        n2 += number_of_people
+    elif number_of_people<=25:
+        n3 += number_of_people
+    elif number_of_people<=40:
+        n4 += number_of_people
+    elif number_of_people>40:
+        n5 += number_of_people
+total_people = n1+n2+n3+n4+n5
+
+print(f"{n1/total_people:.2%}")
+print(f"{n2/total_people:.2%}")
+print(f"{n3/total_people:.2%}")
+print(f"{n4/total_people:.2%}")
+print(f"{n5/total_people:.2%}")
+
