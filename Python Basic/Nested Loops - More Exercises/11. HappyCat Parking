@@ -1,0 +1,16 @@
+days = int(input())
+hours = int(input())
+total = 0.00
+
+for days in range(1, days+1):
+    price = 0.00
+    for hours in range(1, hours+1):
+        if days % 2 == 0 and hours % 2 == 1:
+            price += 2.50
+        elif days % 2 == 1 and hours % 2 == 0:
+            price += 1.25
+        else:
+            price += 1.00
+    total += price
+    print (f"Day: {days} - {price:.2f} leva")
+print(f"Total: {total:.2f} leva")
