@@ -1,0 +1,12 @@
+company_name=str(input())
+adult_tickets=int(input())
+kid_tickets=int(input())
+adult_tickets_price_net=float(input())
+kid_tickets_price_net=adult_tickets_price_net*0.30
+service_tax=float(input())
+
+total_price=(adult_tickets*(adult_tickets_price_net+service_tax)+(kid_tickets*(kid_tickets_price_net+service_tax)))
+agency_profit=0.2*total_price
+format_agency_profit = "{:.2f}".format(agency_profit)
+
+print(f"The profit of your agency from {company_name} tickets is {format_agency_profit} lv.")
