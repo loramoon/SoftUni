@@ -1,0 +1,12 @@
+start = ord(input())
+end = ord(input())
+skip = ord(input())
+count = 0
+for a in range (start, end+1):
+    for b in range (start, end+1):
+        for c in range (start, end+1):
+            if a == skip or b == skip or c == skip:
+                continue
+            print(f"{chr(a)}{chr(b)}{chr(c)}", end=" ")
+            count += 1
+print(count)
