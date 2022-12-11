@@ -1,0 +1,30 @@
+title = ''
+places = 0
+tickets = 0
+students = 0
+standard = 0
+kid = 0
+while title != "Finish":
+    title = input()
+    if title == "Finish":
+        print(f"Total tickets: {tickets}")
+        print(f"{students / tickets:.2%} student tickets.")
+        print(f"{standard / tickets:.2%} standard tickets.")
+        print(f"{kid / tickets:.2%} kids tickets.")
+        break
+    ticket=0
+    places = int(input())
+    for i in range(places):
+        ticket_type = input()
+        if ticket_type == "End":
+            break
+        else:
+            if ticket_type == "student":
+                students += 1
+            elif ticket_type == "standard":
+                standard += 1
+            else:
+                kid += 1
+            tickets += 1
+            ticket += 1
+    print(f"{title} - {ticket/places:.2%} full.")
