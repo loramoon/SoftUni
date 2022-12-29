@@ -1,0 +1,21 @@
+body {
+   background-color: #CCCCCC; 
+   margin: 0px;
+   padding: 0px;
+}
+nav ul {
+    list-style-type: none;
+    background-color: #444;
+    text-align: center;
+}
+nav ul li {
+    font-size: 24px;
+    height: 40px;
+    padding: 20px;
+    line-height: 40px;
+    display: inline-block;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
