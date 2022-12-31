@@ -1,0 +1,48 @@
+html {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+}
+
+blockquote {
+    border-left-style: solid;
+    border-left-color: rgb(221, 221, 221);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+blockquote .signature {
+    text-align: right;
+}
+
+#where {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table#where td {
+    width: 33%;
+}
+
+td,
+th {
+    border: 1px solid grey;
+    padding: 8px;
+
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: gray;
+    color: black;
+}
