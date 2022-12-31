@@ -37,7 +37,7 @@ button {
     padding: 4px 12px;
     line-height: 20px;
     color: #ffffff;
-    border-color: rgba(0, 0, 0, 0.1),  rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.25);
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     cursor: pointer;
 }
 .shopping {
