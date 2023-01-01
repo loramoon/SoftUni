@@ -1,0 +1,22 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+h1, nav, a, ul, li {
+    text-decoration: none;
+    display: inline-block;
+}
+h1 {
+    font-size: 60px;
+    padding-right: 100px;
+    margin-bottom: 10px;
+}
+nav a {
+    color: rgb(40, 195, 40);
+    padding-right: 20px;
+}
+hr {
+    border: 1px solid black;
+}
+h2 {
+    font-size: 40px;
+}
