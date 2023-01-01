@@ -4,6 +4,7 @@ body {
     color: rgb(51,51,51);
 }
 article, aside {
+    vertical-align: top;
     display: inline-block;
 }
 article {
