@@ -1,0 +1,21 @@
+html {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+th, td {
+    border: 1px solid black;
+  }
+div, section {
+    display: flex;
+    align-items: center;
+}
+div {
+    max-width: 65vw;
+}
+span {
+    border: 1px solid black
+}
+.notes {
+    flex-direction: column;
+}
