@@ -1,0 +1,12 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+h2 {
+    font-family: Georgia, serif;
+    line-height: 1.2;
+}
+section {
+    display: flex;
+    justify-content: space-between;
+    max-width: 70vw;
+}
