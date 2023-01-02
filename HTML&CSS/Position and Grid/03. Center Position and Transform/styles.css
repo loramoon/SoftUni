@@ -1,0 +1,28 @@
+@import url("https://use.fontawesome.com/releases/v6.2.0/css/all.css");
+
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+div {
+    display: block;
+}
+
+img{
+    background-color: rgb(255,255,255);
+    position: absolute;
+  }
+  button {
+    background-color: rgb(0, 153, 0);
+    color: white;
+    position: absolute;
+    right: 0;
+  }
+button:hover {
+    cursor: pointer;
+}
+
+  h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+  }
