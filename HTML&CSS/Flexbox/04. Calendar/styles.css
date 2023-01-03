@@ -1,21 +1,45 @@
 html {
     font-family: Helvetica, sans-serif;
     font-size: 20px;
-    box-sizing: border-box;
-}
-th, td {
-    border: 1px solid black;
   }
-div, section {
-    display: flex;
-    align-items: center;
-}
-div {
+  
+  .container {
     max-width: 65vw;
-}
-span {
-    border: 1px solid black
-}
-.notes {
+    display: flex;
+    text-align: center;
+  }
+  
+  .week {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  .week span {
+    flex: auto;
+    height: 4rem;
+  }
+  
+  .week span:nth-child(1), .week span:nth-child(7) {
+    width: 100%;
+  }
+  
+  .week span:nth-child(8), .week span:nth-child(9) {
+    flex:auto;
+  }
+  
+  .notes {
+    display: flex;
     flex-direction: column;
-}
+    justify-content: stretch;
+    text-align: center;
+  }
+  
+  .notes span {
+    flex-grow: 1;
+  }
+  
+  span {
+    border: 1px solid black;
+    padding: 0.5rem;
+  }
