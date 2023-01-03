@@ -1,0 +1,11 @@
+
+body, ul, li {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul {
+  list-style: none;
+  justify-content: space-between;
+  
+}
+
