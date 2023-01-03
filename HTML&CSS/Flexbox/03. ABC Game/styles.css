@@ -4,12 +4,15 @@ html {
 }
 div {
     display: flex;
-    align-items: center;
     max-width: 15vw;
     height: 35rem;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 1rem;
+    
 }
 span {
     border: solid 1px black;
+    text-align: center;
+    padding: 1rem;
 }
