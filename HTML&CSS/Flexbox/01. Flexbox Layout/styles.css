@@ -1,6 +1,6 @@
 body {
     background-color: rgb(126, 123, 123);
-    padding: 5rem;
+    gap: 1rem;
     display: flex;
     flex-wrap: wrap;
 }
