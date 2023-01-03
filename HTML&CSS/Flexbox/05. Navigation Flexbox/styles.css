@@ -1,0 +1,19 @@
+header {
+  border-bottom: 2px solid rgb(0,0,0);
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  
+  display: flex;
+}
+
+nav a {
+  color: rgb(0, 153, 0);
+  padding: 20px;
+  text-decoration: none;
+}
+h1 {
+  text-transform: uppercase;
+}
