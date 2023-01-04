@@ -1,0 +1,20 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: rgb(238, 238, 238);    
+}
+
+div.card {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0em 0 .5em black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 35%;  
+}
+
+h3 {
+    font-family: Georgia,  serif;
+}
