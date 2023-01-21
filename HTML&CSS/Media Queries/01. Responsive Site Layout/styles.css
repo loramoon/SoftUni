@@ -1,0 +1,50 @@
+header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+  }
+  aside {
+    grid-area: aside;
+  }
+  footer {
+    grid-area: footer;
+  }
+  
+body {
+    background-color: rgb(255, 255, 255);
+    gap: 1rem;
+    display: grid;
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "aside aside"
+    "main main"
+    "footer footer";
+
+}
+header, main, aside, footer {
+    padding: 2rem;
+    background-color: rgb(0, 150, 250);
+    border-radius: 0.4rem;
+    color: #000;
+}
+
+aside li {
+    list-style: none;
+}
+
+@media (min-width: 500px) {
+    body {
+        display: grid;
+        grid-template-areas: 
+        "header header"
+        "aside main"
+        "footer footer";
+    }
+}
+
+header {
+display: block;
+margin-bottom: 5px;
+}
