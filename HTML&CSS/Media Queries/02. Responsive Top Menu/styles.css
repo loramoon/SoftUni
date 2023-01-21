@@ -1,0 +1,66 @@
+header {
+  grid-area: header;
+  margin-bottom: 5px;
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: aside;
+}
+
+footer {
+  grid-area: footer;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(53, 100, 153);
+  padding: 5px 15px;
+}
+
+nav li {
+  display: inline;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  gap: 1rem;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "aside aside"
+    "main main"
+    "footer footer";
+
+}
+
+header, main, aside, footer {
+  padding: 2rem;
+  background-color: rgb(0, 150, 250);
+  border-radius: 0.4rem;
+  color: #000;
+}
+
+aside li, nav li {
+  list-style: none;
+}
+
+@media (max-width: 500px) {
+  body {
+    grid-template-areas:
+      "header header"
+      "aside main"
+      "footer footer";
+  }
+  nav a {
+    display: block;
+    padding-left: 5px;
+  }
+  nav ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
