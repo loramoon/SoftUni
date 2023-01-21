@@ -1,0 +1,75 @@
+@import url(https://use.fontawesome.com/releases/v6.2.0/css/all.css);
+* {
+    box-sizing:content-box;
+  }
+  
+  h3 {
+    border: 1px solid #888;
+    width: fit-content;
+    background: white;
+    padding: 3px 25px;
+    position: relative;
+    top: 40px;
+  }
+
+  input[type=text], input[type=password] {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit]{
+    background-color: black;
+    color: white;
+    padding: 12px 20px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    margin-top: 20px;
+  }
+  
+  
+  .container {
+    width: 80%; 
+    border-radius: 5px;
+    border: 1px solid #888;
+    padding: 20px;
+    margin: 5% auto 15% auto; 
+  }
+
+
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75{
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  
+
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75{
+      width: 100%;
+    }
+  }
