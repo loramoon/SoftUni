@@ -1,0 +1,44 @@
+@media only screen and (max-width: 768px) {
+    /* Target the element containing the images */
+    .wrapper.style2 {
+        background: #1e1f23;
+        padding: 20px;
+    }
+    .gallery div {
+      /* Set the width of each image container to 100% of the available space */
+      width: 100%;
+      /* Remove any left and right margins */
+      margin: 0;
+    }
+    /* Target the images themselves */
+    .gallery img {
+      /* Set the width of each image to 100% */
+      width: 100%;
+    }
+
+    /* Target the element containing the elements */
+    .wrapper {
+      /* Set the flex-wrap property to wrap the elements to the next row */
+      flex-wrap: wrap;
+    }
+    /* Target the elements themselves */
+    .wrapper > * {
+      /* Set the width of each element to 100% of the available space */
+      width: 100%;
+      /* Remove any left and right margins */
+      margin: 0;
+    }
+    /* Target the images inside the elements */
+    .wrapper img {
+      /* Set the width of each image to 100% */
+      width: 100%;
+    }
+
+    .inner {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0 !important;
+    }
+  }
+  
