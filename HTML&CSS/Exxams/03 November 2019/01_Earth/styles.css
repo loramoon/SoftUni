@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Work+Sans&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+}
+
+header {
+    background-color: black;
+    width: 640px;
+}
+
+h1, h3, h2 {
+    padding: 20px 10px;
+}
+
+h1 {
+    color: aqua;
+    padding-bottom: 0px;
+}
+
+h3 {
+    color: white;
+    padding-top: 0px;
+}
+
+h2 {
+    background-color: black;
+    color: white;
+    width: fit-content;
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+.top {
+    display: flex;
+    width: 600px;
+}
+
+.left, .right {
+    padding: 10px;
+    width: 300px;
+}
+
+img {
+    width: 300px;
+}
+
+.left {
+    border: 1px solid black;
+}
+
+.top {
+  padding: 20px;
+}
+
+.bottom {
+    width: 640px;
+    margin: 0px;
+}
+
+.bottom div {
+    background-color: rgb(222, 233, 243);
+    margin: 0px;
+    padding: 10px;
+}
+
+.bottom p {
+    margin: 8px;
+    margin-top: 0px;
+}
+
+body {
+  border: 1px solid black;
+  width: 640px;
+}
