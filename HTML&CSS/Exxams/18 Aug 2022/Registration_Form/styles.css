@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
+body {
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Mulish", sans-serif;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 150px;
+  background-image: url(./images/form-background.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 15px;
+  width: 750px;
+  
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  box-shadow: 20px 20px 10px grey;
+}
+
+form {
+  margin-left: -250px;
+  height: 500px;
+}
+
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px 60px 40px 80px;
+  border-radius: 30px;
+  background-color: rgb(199, 58, 58);
+  color: white;
+  text-transform: uppercase;
+  border-style: none;
+  cursor:pointer;
+}
+
+input {
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px black solid;
+}
+
+p,
+label,
+.condition {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label {
+  padding: 8px;
+}
+
+
+button:hover {
+  box-shadow: 20px 20px 10px grey;
+}
+
