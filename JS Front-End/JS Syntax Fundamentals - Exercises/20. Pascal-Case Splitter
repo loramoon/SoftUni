@@ -1,0 +1,4 @@
+function splitPascalCase(str) {
+  let words = str.match(/[A-Z][a-z]+/g);
+  return words ? words.join(', ') : '';
+}
