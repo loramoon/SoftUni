@@ -1,0 +1,8 @@
+function replaceWordWithStars(text, word) {
+
+    let regex = new RegExp(word, 'g');
+
+    let replacedText = text.replace(regex, '*'.repeat(word.length));
+
+    console.log(replacedText);
+  }
