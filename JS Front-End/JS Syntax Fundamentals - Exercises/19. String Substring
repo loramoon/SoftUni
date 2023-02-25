@@ -1,0 +1,12 @@
+function findWord(word, text) {
+  const words = text.toLowerCase().split(' ');
+  if (words.includes(word.toLowerCase())) {
+    console.log(word.toLowerCase());
+  } else {
+    console.log(`${word} not found!`);
+  }
+}
+
+// Example usage:
+findWord('javascript', 'JavaScript is the best programming language'); // javascript
+findWord('python', 'JavaScript is the best programming language'); // python not found!
