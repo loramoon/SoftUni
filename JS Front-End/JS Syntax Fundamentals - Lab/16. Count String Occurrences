@@ -1,0 +1,5 @@
+function countOccurrences(text, word) {
+  const regex = new RegExp(word, 'g');
+  const count = (text.match(regex) || []).length;
+  console.log(count);
+}
