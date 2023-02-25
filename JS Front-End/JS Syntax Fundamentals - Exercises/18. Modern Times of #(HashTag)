@@ -1,0 +1,15 @@
+function extractSpecialWords(str) {
+  const words = str.split(' ');
+  const specialWords = [];
+
+  for (const word of words) {
+    if (word.startsWith('#')) {
+      const specialWord = word.substring(1);
+      if (/^[a-zA-Z]+$/.test(specialWord)) {
+        specialWords.push(specialWord);
+      }
+    }
+  }
+
+  return specialWords.join('\n');
+}
