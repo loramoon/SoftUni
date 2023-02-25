@@ -1,0 +1,12 @@
+function sortAndNumberNames(names) {
+  names.sort(); // Sort the names alphabetically in ascending order
+  let numberedNames = ''; // Create an empty string to store the numbered names
+  for (let i = 0; i < names.length; i++) {
+    numberedNames += `${i+1}.${names[i]}\n`; // Append the numbered name to the string
+  }
+  return numberedNames; // Return the numbered names
+}
+
+// Example usage:
+const names = ["John", "Bob", "Christina", "Ema"];
+console.log(sortAndNumberNames(names));
