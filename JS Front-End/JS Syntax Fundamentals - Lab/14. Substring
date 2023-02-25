@@ -1,0 +1,6 @@
+function substring(str, startIndex, count) {
+    // use the substring method to get the desired substring
+    let subStr = str.substring(startIndex, startIndex + count);
+    // print the result to the console
+    console.log(subStr);
+  }
