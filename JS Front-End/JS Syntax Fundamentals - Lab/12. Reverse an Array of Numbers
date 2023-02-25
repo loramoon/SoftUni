@@ -1,0 +1,10 @@
+function reverseArray(n, arr) {
+  if (n > arr.length) {
+    console.log('Error: n is greater than the length of the array');
+    return;
+  }
+  
+  const subset = arr.slice(0, n);
+  const reversedSubset = subset.reverse();
+  console.log(reversedSubset.join(' '));
+}
