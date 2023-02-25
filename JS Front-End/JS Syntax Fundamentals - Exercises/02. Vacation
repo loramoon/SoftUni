@@ -1,0 +1,46 @@
+function calculatePrice(groupSize, groupType, dayOfWeek) {
+  let pricePerPerson = 0;
+  
+  // Set the price per person based on the group type and day of the week
+  if (groupType === "Students") {
+    if (dayOfWeek === "Friday") {
+      pricePerPerson = 8.45;
+    } else if (dayOfWeek === "Saturday") {
+      pricePerPerson = 9.8;
+    } else if (dayOfWeek === "Sunday") {
+      pricePerPerson = 10.46;
+    }
+  } else if (groupType === "Business") {
+    if (dayOfWeek === "Friday") {
+      pricePerPerson = 10.9;
+    } else if (dayOfWeek === "Saturday") {
+      pricePerPerson = 15.6;
+    } else if (dayOfWeek === "Sunday") {
+      pricePerPerson = 16;
+    }
+  } else if (groupType === "Regular") {
+    if (dayOfWeek === "Friday") {
+      pricePerPerson = 15;
+    } else if (dayOfWeek === "Saturday") {
+      pricePerPerson = 20;
+    } else if (dayOfWeek === "Sunday") {
+      pricePerPerson = 22.5;
+    }
+  }
+  
+  // Calculate the base price (without discounts)
+  let basePrice = groupSize * pricePerPerson;
+  
+  // Apply discounts in the specified order
+  if (groupType === "Students" && groupSize >= 30) {
+    basePrice *= 0.85; // reduce by 15%
+  } else if (groupType === "Business" && groupSize >= 100) {
+    basePrice -= (10 * pricePerPerson); // 10 people stay for free
+  } else if (groupType === "Regular" && groupSize >= 10 && groupSize <= 20) {
+    basePrice *= 0.95; // reduce by 5%
+  }
+  
+  // Format and print the final price
+  let finalPrice = basePrice.toFixed(2);
+  console.log(`Total price: ${finalPrice}`);
+}
