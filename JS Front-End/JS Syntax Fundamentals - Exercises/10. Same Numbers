@@ -1,0 +1,9 @@
+function sameDigitsAndSum(num) {
+  const digits = Array.from(String(num), Number);
+  const firstDigit = digits[0];
+  const allSame = digits.every(digit => digit === firstDigit);
+  const sum = digits.reduce((acc, digit) => acc + digit, 0);
+  
+  console.log(allSame);
+  console.log(sum);
+}
