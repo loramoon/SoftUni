@@ -1,0 +1,19 @@
+function sortArray(numbers) {
+  // Sort the array in ascending order
+  numbers.sort(function(a, b) {
+    return a - b;
+  });
+
+  // Create a new array to hold the sorted numbers
+  var sorted = [];
+
+  // Loop through the original array, taking the smallest and largest numbers alternately
+  for (var i = 0, j = numbers.length - 1; i <= j; i++, j--) {
+    sorted.push(numbers[i]);
+    if (i != j) {
+      sorted.push(numbers[j]);
+    }
+  }
+
+  return sorted;
+}
