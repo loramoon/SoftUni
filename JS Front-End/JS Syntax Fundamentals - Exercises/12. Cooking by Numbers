@@ -1,0 +1,21 @@
+function cookingByNumbers(num, op1, op2, op3, op4, op5) {
+  num = Number(num);
+  
+  const operations = {
+    chop: (num) => num / 2,
+    dice: (num) => Math.sqrt(num),
+    spice: (num) => num + 1,
+    bake: (num) => num * 3,
+    fillet: (num) => num * 0.8
+  };
+  
+  const orderedOps = [op1, op2, op3, op4, op5];
+  
+  for (let i = 0; i < orderedOps.length; i++) {
+    const currentOp = orderedOps[i];
+    num = operations[currentOp](num);
+    console.log(num);
+  }
+}
+
+cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop');
