@@ -1,0 +1,9 @@
+function rotateArray(arr, rotations) {
+  // Rotate the array for the given number of times
+  for (let i = 0; i < rotations; i++) {
+    arr.push(arr.shift());
+  }
+  
+  // Print the resulting array elements separated by a single space
+  console.log(arr.join(' '));
+}
