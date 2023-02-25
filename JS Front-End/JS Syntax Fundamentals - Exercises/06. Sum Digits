@@ -1,0 +1,10 @@
+function sumDigits(number) {
+  let sum = 0;
+  const numberString = number.toString();
+  
+  for (let i = 0; i < numberString.length; i++) {
+    sum += parseInt(numberString[i]);
+  }
+  
+  return sum;
+}
