@@ -1,0 +1,16 @@
+function replaceWords(words, template) {
+  const wordList = words.split(", ");
+  const templateList = template.split(" ");
+
+  for (let i = 0; i < templateList.length; i++) {
+    if (templateList[i].includes("*")) {
+      const length = templateList[i].length;
+      const matchingWord = wordList.find((word) => word.length === length);
+      templateList[i] = matchingWord;
+    }
+  }
+
+  return templateList.join(" ");
+}
+
+console.log(replaceWords("great", "softuni is ***** place for learning new programming languages"));
